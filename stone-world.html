@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stone World - BEDUL's FullStack Game Development Project</title>
     <meta name="description" content="Stone World - A large-scale Roblox game project featuring complex systems including custom inventory, weather, and interactive mechanics.">
-    <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#0a0a0f">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,237 @@
 
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Page-specific styles (clean, organized) -->
+    <style>
+        /* ═══════════════════════════════════════
+           TYPOGRAPHY SYSTEM (1.25 scale)
+           ═══════════════════════════════════════ */
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; }
+        h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; }
+        h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+        h4 { font-size: 1.2rem; font-weight: 600; line-height: 1.5; }
+        
+        body { line-height: 1.6; }
+        p { max-width: 65ch; }
+        
+        /* ═══════════════════════════════════════
+           SPACING SYSTEM (8px base)
+           ═══════════════════════════════════════ */
+        .space-xs { margin: 0.5rem; }
+        .space-sm { margin: 1rem; }
+        .space-md { margin: 2rem; }
+        .space-lg { margin: 3rem; }
+        .space-xl { margin: 4rem; }
+        
+        .px-sm { padding-left: 1rem; padding-right: 1rem; }
+        .px-md { padding-left: 2rem; padding-right: 2rem; }
+        .py-sm { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-md { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-lg { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-xl { padding-top: 5rem; padding-bottom: 5rem; }
+        
+        /* ═══════════════════════════════════════
+           CONTAINER & LAYOUT
+           ═══════════════════════════════════════ */
+        .container { max-width: 1200px; margin: 0 auto; }
+        .container-sm { max-width: 900px; margin: 0 auto; }
+        .container-full { width: 100%; }
+        
+        section { padding-left: 2rem; padding-right: 2rem; }
+        
+        /* ═══════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════ */
+        .hero {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        
+        .hero__badge {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero__title {
+            margin-bottom: 1rem;
+        }
+        
+        .hero__subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero__badges-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ═══════════════════════════════════════
+           IMAGE CONTAINERS
+           ═══════════════════════════════════════ */
+        .image-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            transition: all 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,.2);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
+        }
+        
+        .image-container--featured {
+            max-height: 500px;
+        }
+        
+        .image-container--showcase {
+            aspect-ratio: 16/9;
+        }
+        
+        /* ═══════════════════════════════════════
+           CONTENT SECTIONS
+           ═══════════════════════════════════════ */
+        .content-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        
+        .section__title {
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .section__subtitle {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 65ch;
+        }
+        
+        /* ═══════════════════════════════════════
+           GRID LAYOUTS
+           ═══════════════════════════════════════ */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+        }
+        
+        /* ═══════════════════════════════════════
+           CARD COMPONENTS
+           ═══════════════════════════════════════ */
+        .card {
+            background: var(--color-bg-secondary);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,.1);
+        }
+        
+        .card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .card__text {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+        
+        /* ═══════════════════════════════════════
+           LIST STYLES
+           ═══════════════════════════════════════ */
+        .list-unstyled {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .list-unstyled li {
+            margin-bottom: 0.75rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .list-unstyled li:before {
+            content: "✓";
+            color: #818cf8;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        /* ═══════════════════════════════════════
+           ACCENT COLORS (PRIMARY ONLY)
+           ═══════════════════════════════════════ */
+        .accent-primary { color: #818cf8; }
+        .accent-secondary { color: #6366f1; }
+        
+        /* ═══════════════════════════════════════
+           DIVIDER & SPACING
+           ═══════════════════════════════════════ */
+        .divider {
+            height: 1px;
+            background: rgba(129,140,248,.1);
+            margin: 2rem 0;
+        }
+        
+        /* ═══════════════════════════════════════
+           CTAS & BUTTONS
+           ═══════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn svg { width: 18px; height: 18px; }
+    </style>
 </head>
 <body>
 
@@ -60,324 +291,320 @@
 </div>
 
 <main>
-<!-- ─── Project Hero ─── -->
-<section id="project-hero" style="padding: 6rem 2rem; text-align: center;">
-    <div class="reveal" style="max-width: 800px; margin: 0 auto;">
-        <div style="margin-bottom: 2rem;">
-            <span class="badge badge-featured" style="display: inline-block; margin-bottom: 1rem;">Featured Project</span>
-        </div>
-        <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1;">
-            Stone World
-        </h1>
-        <p style="font-size: 1.125rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
-            An RPG game inspired by Dr Stone, featuring complex gameplay mechanics, player progression systems, and an immersive player-driven economy. Built with a dedicated team of developers working collaboratively in an integrated development ecosystem.
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="hero container-sm">
+    <div class="reveal">
+        <span class="badge badge-featured hero__badge">Featured Project</span>
+        
+        <h1 class="hero__title">Stone World</h1>
+        
+        <p class="hero__subtitle">
+            An RPG game inspired by Dr Stone, featuring complex gameplay mechanics, player progression systems, and an immersive player-driven economy. Built with a dedicated team of developers.
         </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8; padding: 0.5rem 1rem;">Active</span>
-            <span class="badge" style="background: rgba(6,182,212,.15); color: #22d3ee; padding: 0.5rem 1rem;">FullStack Development</span>
-            <span class="badge" style="background: rgba(139,92,246,.15); color: #a78bfa; padding: 0.5rem 1rem;">Roblox Platform</span>
+        
+        <div class="hero__badges-row">
+            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8;">Active</span>
+            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8;">FullStack Development</span>
+            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8;">Roblox Platform</span>
         </div>
     </div>
 </section>
 
-<!-- ─── Project Image ─── -->
-<section style="padding: 2rem; max-width: 1200px; margin: 0 auto;">
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURED IMAGE
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container">
     <div class="reveal">
-        <a href="assets/images/Stone_world.png" target="_blank" rel="noopener" style="display: block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-            <img src="assets/images/Stone_world.png" alt="Stone World" style="width: 100%; border-radius: 1rem; object-fit: cover; max-height: 500px; box-shadow: 0 4px 6px rgba(0,0,0,.1); display: block;">
+        <a href="assets/images/Stone_world.png" target="_blank" rel="noopener" class="image-container image-container--featured">
+            <img src="assets/images/Stone_world.png" alt="Stone World gameplay">
         </a>
     </div>
 </section>
 
-<!-- ─── Project Overview ─── -->
-<section style="padding: 4rem 2rem; max-width: 1000px; margin: 0 auto;">
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECT OVERVIEW
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container-sm">
     <div class="reveal">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem;">Project Overview</h2>
-        <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <h2 class="section__title">Project Overview</h2>
+        <p class="section__subtitle">
             Stone World is a sophisticated game ecosystem where I contribute as a FullStack Developer. The project encompasses complex system architecture, data management, and user-facing gameplay mechanics. I've been instrumental in designing and implementing several core systems that define the player experience.
         </p>
     </div>
 </section>
 
-<!-- ─── Project Overview Details ─── -->
-<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+<!-- ═══════════════════════════════════════════════════════════════
+     MY ROLE & RESPONSIBILITIES
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container">
     <div class="reveal">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">My Role & Team Structure</h2>
+        <h2 class="section__title" style="margin-bottom: 3rem;">My Role & Team Structure</h2>
         
-        <!-- Head Developer Section -->
+        <!-- HEAD DEVELOPER ROLE -->
         <div style="margin-bottom: 4rem;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; margin-bottom: 2rem;">
+            <div class="grid-2">
                 <div>
-                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #818cf8;">Head Developer for Scripters</h3>
-                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                        As the Head Developer, I oversee all scripting team members and ensure code quality, architecture consistency, and proper system integration across all frameworks. My responsibility is to guide, mentor, and coordinate the scripter team to deliver robust and scalable solutions.
+                    <h3 style="color: #818cf8; margin-bottom: 1rem;">Head Developer for Scripters</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+                        As the Head Developer, I oversee all scripting team members and ensure code quality, architecture consistency, and proper system integration across all frameworks.
                     </p>
-                    <ul style="list-style: none; color: var(--color-text-secondary);">
-                        <li style="margin-bottom: 0.5rem;">Leadership of scripting team</li>
-                        <li style="margin-bottom: 0.5rem;">Code review and quality assurance</li>
-                        <li style="margin-bottom: 0.5rem;">Architecture design and documentation</li>
+                    <ul class="list-unstyled">
+                        <li>Leadership of scripting team</li>
+                        <li>Code review and quality assurance</li>
+                        <li>Architecture design and documentation</li>
                     </ul>
                 </div>
-                <div style="text-align: center;">
-                    <a href="assets/images/Stone_world_hd.png" target="_blank" rel="noopener" style="display: inline-block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; width: 100%;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                        <img src="assets/images/Stone_world_hd.png" alt="Head Developer" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,.1); display: block;">
-                    </a>
-                </div>
+                <a href="assets/images/Stone_world_hd.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Stone_world_hd.png" alt="Head Developer role">
+                </a>
             </div>
         </div>
-
-        <!-- Team Structure -->
-        <div style="margin-bottom: 4rem; padding: 2rem; background: var(--color-bg-secondary); border-radius: 1rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #22d3ee;">Team Composition</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+        
+        <div class="divider"></div>
+        
+        <!-- TEAM COMPOSITION -->
+        <div style="margin-bottom: 4rem; margin-top: 4rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1rem;">Team Composition</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
                 The Stone World project is powered by a dedicated team of approximately 14 members, consisting of experienced scripters, talented builders, and specialized developers who work in perfect harmony. Each team member brings unique expertise and contributes to different aspects of the game ecosystem.
             </p>
             <div style="text-align: center;">
-                <a href="assets/images/Stone_world_work.png" target="_blank" rel="noopener" style="display: inline-block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                    <img src="assets/images/Stone_world_work.png" alt="Team Structure" style="width: 90%; max-width: 600px; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,.1); display: block;">
+                <a href="assets/images/Stone_world_work.png" target="_blank" rel="noopener" class="image-container" style="max-width: 600px; margin: 0 auto; display: block;">
+                    <img src="assets/images/Stone_world_work.png" alt="Team structure">
                 </a>
             </div>
         </div>
-
-        <!-- Lead Scripter Discussion Groups -->
-        <div style="margin-bottom: 4rem; padding: 2rem; background: var(--color-bg-secondary); border-radius: 1rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #eab308;">Lead Scripter & Discussion Groups</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                Each scripter has their dedicated discussion group where we collaborate on specific systems and areas of expertise. These groups facilitate real-time communication, code reviews, and architectural discussions. As the Lead, I actively participate in all groups to provide guidance, direction, and ensure alignment with the overall game vision.
+        
+        <div class="divider"></div>
+        
+        <!-- COLLABORATION STRUCTURE -->
+        <div style="margin-bottom: 4rem; margin-top: 4rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1rem;">Lead Scripter & Discussion Groups</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+                Each scripter has their dedicated discussion group where we collaborate on specific systems and areas of expertise. These groups facilitate real-time communication, code reviews, and architectural discussions.
             </p>
-            <div style="margin-top: 1.5rem; margin-bottom: 2rem; padding: 1rem; background: var(--color-bg); border-radius: 0.5rem;">
-                <p style="font-weight: 600; margin-bottom: 0.5rem;">Collaboration Benefits:</p>
-                <ul style="list-style: none; color: var(--color-text-secondary); font-size: 0.9rem;">
-                    <li style="margin-bottom: 0.3rem;">Real-time code collaboration</li>
-                    <li style="margin-bottom: 0.3rem;">Quick problem resolution</li>
-                    <li style="margin-bottom: 0.3rem;">Knowledge sharing</li>
-                    <li style="margin-bottom: 0.3rem;">System integration oversight</li>
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 class="card__title">Collaboration Benefits</h4>
+                <ul class="list-unstyled">
+                    <li>Real-time code collaboration</li>
+                    <li>Quick problem resolution</li>
+                    <li>Knowledge sharing</li>
+                    <li>System integration oversight</li>
                 </ul>
             </div>
             <div style="text-align: center;">
-                <a href="assets/images/Stone_world_LeadScripter.png" target="_blank" rel="noopener" style="display: inline-block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                    <img src="assets/images/Stone_world_LeadScripter.png" alt="Lead Scripter" style="width: 90%; max-width: 600px; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,.1); display: block;">
+                <a href="assets/images/Stone_world_LeadScripter.png" target="_blank" rel="noopener" class="image-container" style="max-width: 600px; margin: 0 auto; display: block;">
+                    <img src="assets/images/Stone_world_LeadScripter.png" alt="Lead scripter collaboration">
                 </a>
             </div>
         </div>
-
-        <!-- Development Structure -->
-        <div style="margin-bottom: 4rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #a78bfa;">Integrated Development Structure</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+        
+        <div class="divider"></div>
+        
+        <!-- DEVELOPMENT STRUCTURE -->
+        <div style="margin-bottom: 4rem; margin-top: 4rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1rem;">Integrated Development Structure</h3>
+            <div class="grid-2">
                 <div>
-                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                        The game architecture follows a centralized development approach where all developers work in unified spaces and integrate their work across all game places. This structure ensures consistency, reduces conflicts, and allows for seamless system communication across the entire game world.
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+                        The game architecture follows a centralized development approach where all developers work in unified spaces and integrate their work across all game places. This structure ensures consistency, reduces conflicts, and allows for seamless system communication.
                     </p>
-                    <div style="margin-top: 1.5rem;">
-                        <p style="font-weight: 600; margin-bottom: 0.5rem;">My Responsibility:</p>
-                        <p style="color: var(--color-text-secondary); line-height: 1.8;">
-                            I coordinate the entire development workflow, manage system integration, facilitate communication between teams, and ensure all developed systems work harmoniously together across Testing Place, Main Menu, and all game maps.
+                    <div style="background: var(--color-bg-secondary); padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="font-weight: 600; margin-bottom: 1rem;">My Responsibility</h4>
+                        <p style="color: var(--color-text-secondary); line-height: 1.7; font-size: 0.9375rem;">
+                            I coordinate the entire development workflow, manage system integration, and ensure all developed systems work harmoniously together.
                         </p>
                     </div>
                 </div>
-                <div style="text-align: center;">
-                    <a href="assets/images/Stone_world_diagram.png" target="_blank" rel="noopener" style="display: inline-block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; width: 100%;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                        <img src="assets/images/Stone_world_diagram.png" alt="Development Structure" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,.1); display: block;">
-                    </a>
-                </div>
+                <a href="assets/images/Stone_world_diagram.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Stone_world_diagram.png" alt="Development structure diagram">
+                </a>
             </div>
         </div>
-
-        <!-- Custom Framework -->
-        <div style="padding: 2rem; background: var(--color-bg-secondary); border-radius: 1rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #818cf8;">Custom Framework Architecture</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+        
+        <div class="divider"></div>
+        
+        <!-- CUSTOM FRAMEWORK -->
+        <div style="margin-top: 4rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1rem;">Custom Framework Architecture</h3>
+            <div class="grid-2">
                 <div>
-                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                        I've designed and implemented a custom framework that serves as the backbone of Stone World's architecture. This framework provides standardized patterns, communication protocols, and integration points that all systems build upon. It enables scalability, consistency, and efficient collaboration across the entire development team.
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+                        I've designed and implemented a custom framework that serves as the backbone of Stone World's architecture. This framework provides standardized patterns, communication protocols, and integration points that all systems build upon.
                     </p>
-                    <div style="margin-top: 1.5rem;">
-                        <p style="font-weight: 600; margin-bottom: 0.5rem;">Framework Features:</p>
-                        <ul style="list-style: none; color: var(--color-text-secondary);">
-                            <li style="margin-bottom: 0.3rem;">✓ Modular architecture</li>
-                            <li style="margin-bottom: 0.3rem;">✓ Service-oriented design</li>
-                            <li style="margin-bottom: 0.3rem;">✓ Cross-system communication</li>
-                            <li style="margin-bottom: 0.3rem;">✓ Data synchronization layer</li>
-                            <li style="margin-bottom: 0.3rem;">✓ Error handling & logging</li>
+                    <div style="background: var(--color-bg-secondary); padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="font-weight: 600; margin-bottom: 1rem;">Framework Features</h4>
+                        <ul class="list-unstyled">
+                            <li>Modular architecture</li>
+                            <li>Service-oriented design</li>
+                            <li>Cross-system communication</li>
+                            <li>Data synchronization layer</li>
+                            <li>Error handling & logging</li>
                         </ul>
                     </div>
                 </div>
-                <div style="text-align: center;">
-                    <a href="assets/images/Stone_world_framework.png" target="_blank" rel="noopener" style="display: inline-block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; width: 100%;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                        <img src="assets/images/Stone_world_framework.png" alt="Framework" style="width: 100%; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,.1); display: block;">
-                    </a>
-                </div>
+                <a href="assets/images/Stone_world_framework.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Stone_world_framework.png" alt="Custom framework">
+                </a>
             </div>
         </div>
-
+        
     </div>
 </section>
 
-<!-- ─── Technologies & Architecture ─── -->
-<section style="padding: 4rem 2rem; max-width: 1000px; margin: 0 auto;">
+<!-- ═══════════════════════════════════════════════════════════════
+     TECHNOLOGIES & ARCHITECTURE
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container-sm">
     <div class="reveal">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">Core Technologies</h2>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-            <div>
-                <h3 style="font-weight: 600; color: #818cf8; margin-bottom: 1rem;">Primary Technologies</h3>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 0.5rem;">✓ Lua Scripting</li>
-                    <li style="margin-bottom: 0.5rem;">✓ BytenetMax</li>
-                    <li style="margin-bottom: 0.5rem;">✓ ProfileStore</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Custom Knit Framework</li>
+        <h2 class="section__title" style="margin-bottom: 2rem;">Core Technologies</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h4 class="card__title">Primary Technologies</h4>
+                <ul class="list-unstyled">
+                    <li>Lua Scripting</li>
+                    <li>BytenetMax</li>
+                    <li>ProfileStore</li>
+                    <li>Custom Knit Framework</li>
                 </ul>
             </div>
-            <div>
-                <h3 style="font-weight: 600; color: #22d3ee; margin-bottom: 1rem;">Architecture Patterns</h3>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 0.5rem;">✓ Client-Server Architecture</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Modular System Design</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Service Integration</li>
-                    <li style="margin-bottom: 0.5rem;">✓ Data Synchronization</li>
+            <div class="card">
+                <h4 class="card__title">Architecture Patterns</h4>
+                <ul class="list-unstyled">
+                    <li>Client-Server Architecture</li>
+                    <li>Modular System Design</li>
+                    <li>Service Integration</li>
+                    <li>Data Synchronization</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ─── Video Gallery ─── -->
-<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURES SHOWCASE
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container">
     <div class="reveal">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 3rem; text-align: center;">More Features Showcase</h2>
+        <h2 class="section__title" style="text-align: center; margin-bottom: 3rem;">More Features Showcase</h2>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        <div class="grid-3">
             <!-- Tree System -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/1658Fk8qeKQGgIcvQABsgWcZCS0oBz8wj/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/1658Fk8qeKQGgIcvQABsgWcZCS0oBz8wj/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Tree System</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Advanced tree management with realistic growth mechanics.</p>
-                </div>
+                <h4 class="card__title">Tree System</h4>
+                <p class="card__text">Advanced tree management with realistic growth mechanics.</p>
             </div>
 
             <!-- Main Menu -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/1ZIg1Xk1MBJhng2HQLjxeaIxetd7b3vnD/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/1ZIg1Xk1MBJhng2HQLjxeaIxetd7b3vnD/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Main Menu</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Intuitive and user-friendly interface for navigation.</p>
-                </div>
+                <h4 class="card__title">Main Menu</h4>
+                <p class="card__text">Intuitive and user-friendly interface for navigation.</p>
             </div>
 
             <!-- Inventory System -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/137STuOjEX07zn4aVAdtooIdqJYA8lnor/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/137STuOjEX07zn4aVAdtooIdqJYA8lnor/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Inventory System</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Comprehensive item management with drag-and-drop.</p>
-                </div>
+                <h4 class="card__title">Inventory System</h4>
+                <p class="card__text">Comprehensive item management with drag-and-drop.</p>
             </div>
 
             <!-- Interactive Objects -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/1yVDUzPY2aQzyLiTVlyDynHo2EdJAMDRf/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/1yVDUzPY2aQzyLiTVlyDynHo2EdJAMDRf/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Interactive Objects</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Dynamic environment interactions and mechanics.</p>
-                </div>
+                <h4 class="card__title">Interactive Objects</h4>
+                <p class="card__text">Dynamic environment interactions and mechanics.</p>
             </div>
 
             <!-- Weather System -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/1OxpyyU9S_jqALT1p0PPw_97Heif83xKi/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/1OxpyyU9S_jqALT1p0PPw_97Heif83xKi/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Weather System</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Dynamic weather affecting gameplay and visuals.</p>
-                </div>
+                <h4 class="card__title">Weather System</h4>
+                <p class="card__text">Dynamic weather affecting gameplay and visuals.</p>
             </div>
 
             <!-- Tree Cutting -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/1yVDUzPY2aQzyLiTVlyDynHo2EdJAMDRf/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/1yVDUzPY2aQzyLiTVlyDynHo2EdJAMDRf/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Tree Cutting</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Advanced mechanics with physics and animations.</p>
-                </div>
+                <h4 class="card__title">Tree Cutting</h4>
+                <p class="card__text">Advanced mechanics with physics and animations.</p>
             </div>
 
             <!-- Drop System -->
-            <div style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1);">
-                <div style="background: var(--color-bg-secondary); aspect-ratio: 16/9;">
-                    <iframe src="https://drive.google.com/file/d/1tpKe1Ds2VNg1ZurC1SM1tzzSFcA8A0F2/preview" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>
+            <div class="card">
+                <div class="image-container image-container--showcase" style="margin-bottom: 1rem;">
+                    <iframe src="https://drive.google.com/file/d/1tpKe1Ds2VNg1ZurC1SM1tzzSFcA8A0F2/preview" width="100%" height="100%" frameborder="0" allow="autoplay" style="border-radius: 1rem;"></iframe>
                 </div>
-                <div style="padding: 1.5rem; background: var(--color-bg);">
-                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Drop System</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Sophisticated item drops with physics.</p>
-                </div>
+                <h4 class="card__title">Drop System</h4>
+                <p class="card__text">Sophisticated item drops with physics.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ─── Boss Reviews ─── -->
-<section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+<!-- ═══════════════════════════════════════════════════════════════
+     REVIEWS & TESTIMONIALS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container">
     <div class="reveal">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Reviews</h2>
-        <p style="color: var(--color-text-secondary); margin-bottom: 3rem; text-align: center; font-size: 1rem;">
-            What my team leads and boss say about my work as Head Developer
-        </p>
+        <h2 class="section__title" style="text-align: center;">Reviews & Testimonials</h2>
+        <p style="color: var(--color-text-secondary); text-align: center; margin-bottom: 3rem;">What my team leads and boss say about my work as Head Developer</p>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-            <!-- Review 1 -->
-            <a href="assets/images/Stone_world_review1.png" target="_blank" rel="noopener" style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1); background: var(--color-bg-secondary); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; display: block; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                <img src="assets/images/Stone_world_review1.png" alt="Review 1" style="width: 100%; height: auto; display: block;">
+        <div class="grid-3">
+            <a href="assets/images/Stone_world_review1.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/Stone_world_review1.png" alt="Review from team lead">
             </a>
-
-            <!-- Review 2 -->
-            <a href="assets/images/Stone_world_review2.png" target="_blank" rel="noopener" style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1); background: var(--color-bg-secondary); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; display: block; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                <img src="assets/images/Stone_world_review2.png" alt="Review 2" style="width: 100%; height: auto; display: block;">
+            <a href="assets/images/Stone_world_review2.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/Stone_world_review2.png" alt="Review from manager">
             </a>
-
-            <!-- Review 3 -->
-            <a href="assets/images/Stone_world_review3.png" target="_blank" rel="noopener" style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1); background: var(--color-bg-secondary); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; display: block; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                <img src="assets/images/Stone_world_review3.png" alt="Review 3" style="width: 100%; height: auto; display: block;">
+            <a href="assets/images/Stone_world_review3.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/Stone_world_review3.png" alt="Review from colleague">
             </a>
-
-            <!-- Review 4 -->
-            <a href="assets/images/Stone_world_review4.png" target="_blank" rel="noopener" style="border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,.1); background: var(--color-bg-secondary); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; display: block; text-decoration: none;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 12px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-                <img src="assets/images/Stone_world_review4.png" alt="Review 4" style="width: 100%; height: auto; display: block;">
+            <a href="assets/images/Stone_world_review4.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/Stone_world_review4.png" alt="Review from team member">
             </a>
         </div>
     </div>
 </section>
 
-<!-- ─── Join the Community ─── -->
-<section style="padding: 4rem 2rem; text-align: center;">
+<!-- ═══════════════════════════════════════════════════════════════
+     COMMUNITY CTA
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="content-section container-sm" style="text-align: center;">
     <div class="reveal">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">Join the Community</h2>
+        <h2 class="section__title">Join the Community</h2>
         <p style="color: var(--color-text-secondary); margin-bottom: 2rem; font-size: 1.0625rem;">
             Connect with other players and developers. Get updates, provide feedback, and be part of the Stone World community.
         </p>
-        <a href="https://discord.gg/pGZnRn9H" target="_blank" rel="noopener" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="20" height="20"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z"/></svg>
+        <a href="https://discord.gg/pGZnRn9H" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z"/></svg>
             Join Discord Server
         </a>
     </div>
 </section>
 
-<!-- ─── Back to Projects ─── -->
-<section style="padding: 4rem 2rem; text-align: center;">
-    <a href="index.html#projects" class="btn-secondary">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+<!-- ═══════════════════════════════════════════════════════════════
+     BACK TO PROJECTS
+     ═══════════════════════════════════════════════════════════════ -->
+<section style="padding: 3rem 2rem; text-align: center;">
+    <a href="index.html#projects" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         Back to Projects
     </a>
 </section>
