@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Majesty - BEDUL's Game Development Project</title>
-    <meta name="description" content="Anime Majesty - Active anime-themed RPG with character progression and multiplayer mechanics.">
-    <meta name="theme-color" content="#fafafa">
+    <title>Anime Majesty - Complex Game Architecture & Optimization</title>
+    <meta name="description" content="Anime Majesty - A turn-based RPG game emphasizing optimization and security with complex backend architecture.">
+    <meta name="theme-color" content="#0a0a0f">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,17 +17,208 @@
 
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Typography */
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; }
+        h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; }
+        h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+        h4 { font-size: 1.2rem; font-weight: 600; line-height: 1.5; }
+        body { line-height: 1.6; }
+        p { max-width: 65ch; }
+        
+        /* Spacing */
+        .container { max-width: 1200px; margin: 0 auto; }
+        .container-sm { max-width: 900px; margin: 0 auto; }
+        section { padding-left: 2rem; padding-right: 2rem; }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        
+        .hero__badge { display: inline-block; margin-bottom: 1.5rem; }
+        .hero__title { margin-bottom: 1rem; }
+        .hero__subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero__badges-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Images */
+        .image-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            transition: all 0.3s ease;
+        }
+        .image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,.2);
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .section__title { margin-bottom: 1rem; color: var(--color-text); }
+        .section__subtitle {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 65ch;
+        }
+        
+        /* Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--color-bg-secondary);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,.1);
+        }
+        .card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        .card__text {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+        
+        /* Lists */
+        .list-unstyled {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .list-unstyled li {
+            margin-bottom: 0.75rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .list-unstyled li:before {
+            content: "✓";
+            color: #818cf8;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: rgba(129,140,248,.1);
+            margin: 2rem 0;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn svg { width: 18px; height: 18px; }
+        
+        /* Code Block */
+        .code-block {
+            background: var(--color-bg-secondary);
+            border-left: 4px solid #818cf8;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        /* Stat Box */
+        .stat-box {
+            background: linear-gradient(135deg, rgba(129,140,248,.1) 0%, rgba(34,211,238,.1) 100%);
+            border: 1px solid rgba(129,140,248,.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .stat-box__value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #818cf8;
+            margin-bottom: 0.5rem;
+        }
+        .stat-box__label {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+            .stat-box__value { font-size: 1.875rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ─── Ambient Background ─── -->
+<!-- Ambient Background -->
 <div class="ambient-bg" aria-hidden="true">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 </div>
 
-<!-- ─── Navbar ─── -->
+<!-- Navbar -->
 <nav id="navbar">
     <div class="nav-inner">
         <a href="index.html" class="nav-brand">BEDUL</a>
@@ -60,74 +251,396 @@
 </div>
 
 <main>
-<!-- ─── Hero Section ─── -->
-<section style="padding: 5rem 2rem; text-align: center; background: linear-gradient(135deg, rgba(167,139,250,.05) 0%, rgba(34,211,238,.05) 100%);">
-    <div style="max-width: 900px; margin: 0 auto;">
-        <h1 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem;">Anime Majesty</h1>
-        <p style="font-size: 1.25rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Active Anime-Themed RPG | Multiplayer Adventure</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <span class="badge" style="background: rgba(167,139,250,.15); color: #a78bfa; padding: 0.5rem 1rem;">Active Project</span>
-            <span class="badge" style="background: rgba(129,140,248,.15); color: #818cf8; padding: 0.5rem 1rem;">Character Progression</span>
-            <span class="badge" style="background: rgba(34,211,238,.15); color: #22d3ee; padding: 0.5rem 1rem;">Multiplayer</span>
+
+<!-- HERO SECTION -->
+<section class="hero container-sm">
+    <div class="reveal">
+        <span class="badge badge-featured hero__badge">Featured Project</span>
+        
+        <h1 class="hero__title">Anime Majesty</h1>
+        
+        <p class="hero__subtitle">
+            A turn-based RPG game emphasizing optimization and security above all else. Simple gameplay from a player's perspective, but built with an extraordinarily complex backend architecture to ensure performance, stability, and data integrity.
+        </p>
+        
+        <div class="hero__badges-row">
+            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8;">Active</span>
+            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8;">Backend Optimization</span>
+            <span class="badge" style="background: rgba(99,102,241,.15); color: #818cf8;">Security-First</span>
         </div>
     </div>
 </section>
 
-<!-- ─── Main Showcase ─── -->
-<section style="padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;">
-    <a href="assets/images/Anime_Majesty.png" target="_blank" rel="noopener" style="display: block; border-radius: 1rem; overflow: hidden; cursor: pointer; transition: all 0.3s ease; margin-bottom: 2rem;" onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,.1)';">
-        <img src="assets/images/Anime_Majesty.png" alt="Anime Majesty" style="width: 100%; height: 550px; object-fit: cover; border-radius: 1rem; display: block;">
+<!-- OVERVIEW SECTION -->
+<section class="content-section container-sm">
+    <div class="reveal">
+        <h2 class="section__title">Project Overview</h2>
+        <p class="section__subtitle">
+            Anime Majesty is a sophisticated turn-based RPG where my team and I prioritize optimization and security above all else. What appears as a simple combat system to players belies an extraordinarily complex backend that handles real-time synchronization, state management, and resource efficiency at scale.
+        </p>
+        <p style="color: var(--color-text-secondary); line-height: 1.8;">
+            This project taught me that true game development mastery isn't about flashy features—it's about building systems that scale, remain secure, and perform under pressure. Every byte transmitted, every memory allocation, every network call has been meticulously optimized.
+        </p>
+    </div>
+</section>
+
+<!-- GAME FLOW VISUALIZATION -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="margin-bottom: 2rem; text-align: center;">Simple Interface, Complex Reality</h2>
+        <p style="color: var(--color-text-secondary); text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            To the player, Anime Majesty is straightforward: select attacks, watch animations, win battles. Behind the scenes? A meticulously orchestrated symphony of optimized systems.
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="assets/images/Anime_Majesty_game_flow.png" target="_blank" rel="noopener" class="image-container" style="max-width: 900px; margin: 0 auto; display: block;">
+                <img src="assets/images/Anime_Majesty_game_flow.png" alt="Game flow architecture">
+            </a>
+        </div>
+        <p style="color: var(--color-text-secondary); text-align: center; font-size: 0.9375rem; font-style: italic;">
+            Game flow diagram showing the complete data pipeline from player input to final animation render
+        </p>
+    </div>
+</section>
+
+<!-- ATTACK COMPLEXITY -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="margin-bottom: 1rem;">Deconstructing a Single Attack</h2>
+        <p class="section__subtitle">
+            What looks like a single button tap to the player involves dozens of interconnected systems validating, calculating, synchronizing, and rendering. This is why every optimization matters.
+        </p>
+        
+        <div style="margin: 3rem 0;">
+            <a href="assets/images/Anime_Majesty_request_A.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/Anime_Majesty_request_A.png" alt="Attack request architecture">
+            </a>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <h4 class="card__title">1️⃣ Input Validation</h4>
+                <p class="card__text">Client-side validation ensures the action is legal within game rules before transmission.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">2️⃣ Server Authentication</h4>
+                <p class="card__text">Server receives request, re-validates (never trust client), checks player state, confirms target validity.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">3️⃣ Calculation Layer</h4>
+                <p class="card__text">Damage calculations, critical hits, status effects—all computed server-side with deterministic results.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">4️⃣ State Application</h4>
+                <p class="card__text">Game state updates (HP changes, status application, turn progression) applied atomically.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">5️⃣ Network Synchronization</h4>
+                <p class="card__text">Optimized data packets sent to all affected players with minimal bandwidth overhead.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">6️⃣ Client Rendering</h4>
+                <p class="card__text">Animation systems, VFX, sound triggers—all orchestrated to play in perfect sync.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLIENT-SERVER ARCHITECTURE -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="margin-bottom: 1rem;">Client-Server Model & Entity Spawning</h2>
+        <p class="section__subtitle">
+            Every NPC model, animation, VFX, and sound effect must be spawned on the client while remaining synchronized with the authoritative server. This creates significant integration complexity.
+        </p>
+
+        <div class="grid-2" style="margin: 3rem 0;">
+            <div style="text-align: center;">
+                <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Client-Side Rendering</h3>
+                <a href="assets/images/Anime_Majesty_client.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Anime_Majesty_client.png" alt="Client architecture">
+                </a>
+                <p style="color: var(--color-text-secondary); margin-top: 1rem; font-size: 0.9375rem;">
+                    Handles visual rendering, animations, and user interactions while receiving authoritative state updates from server
+                </p>
+            </div>
+            <div style="text-align: center;">
+                <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Server Authority</h3>
+                <a href="assets/images/Anime_Majesty_server.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Anime_Majesty_server.png" alt="Server architecture">
+                </a>
+                <p style="color: var(--color-text-secondary); margin-top: 1rem; font-size: 0.9375rem;">
+                    Maintains complete game state, validates all actions, and broadcasts authoritative updates to all connected clients
+                </p>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h4 class="card__title">🎯 The Integration Challenge</h4>
+            <p class="card__text" style="margin-bottom: 1rem;">
+                The biggest complexity arises from the team-based nature of Anime Majesty. When multiple players form a team to battle NPCs, the server must:
+            </p>
+            <ul class="list-unstyled" style="margin-bottom: 0;">
+                <li>Manage multiple simultaneous player connections with different network latencies</li>
+                <li>Keep all clients perfectly synchronized despite inherent network delays</li>
+                <li>Handle conflicts when players attempt simultaneous actions</li>
+                <li>Ensure NPC behavior remains deterministic and fair for all players</li>
+                <li>Manage all visual/audio assets spawning correctly across all clients</li>
+                <li>Prevent desynchronization that could lead to exploits or unfair advantage</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SERVER FRAMEWORK -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="margin-bottom: 1rem;">Server Framework Architecture</h2>
+        <p class="section__subtitle">
+            To handle this complexity reliably, we built a custom server framework that manages state, coordinates distributed players, and maintains security throughout the turn-based flow.
+        </p>
+
+        <div style="margin: 3rem 0;">
+            <a href="assets/images/Anime_Majesty_framework.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/Anime_Majesty_framework.png" alt="Server framework">
+            </a>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <h4 class="card__title">Connection Layer</h4>
+                <p class="card__text">Manages player joins, leaves, reconnections, and gracefully handles disconnects without breaking game state.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">State Manager</h4>
+                <p class="card__text">Maintains authoritative game state and broadcasts deltas to minimize bandwidth while keeping everyone in sync.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">Action Queue</h4>
+                <p class="card__text">Serializes simultaneous player actions into a deterministic turn order, preventing race conditions.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">Validation Engine</h4>
+                <p class="card__text">Every action is server-validated before applying to state. This is where security actually lives.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">Synchronization Core</h4>
+                <p class="card__text">Ensures all players see identical game state despite network delays. Implements client prediction where beneficial.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">Analytics & Monitoring</h4>
+                <p class="card__text">Tracks frame times, memory usage, network bandwidth, and detects anomalies in real-time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider" style="max-width: 1200px; margin-left: auto; margin-right: auto;"></div>
+
+<!-- PACKET OPTIMIZATION SHOWCASE -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="text-align: center; margin-bottom: 1rem;">Extreme Packet Optimization</h2>
+        <p style="color: var(--color-text-secondary); text-align: center; margin-bottom: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+            To ensure 50+ players can exist on a single server without lag, every byte matters. We optimized network transmission to achieve impossible-seeming efficiency. Below are real metrics from live gameplay.
+        </p>
+
+        <!-- Efficiency Stats -->
+        <div class="grid-3" style="margin-bottom: 3rem;">
+            <div class="stat-box">
+                <div class="stat-box__value">247 <span style="font-size: 1rem; color: var(--color-text-secondary);">bytes</span></div>
+                <div class="stat-box__label">Player Attack Request</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box__value">577 <span style="font-size: 1rem; color: var(--color-text-secondary);">bytes</span></div>
+                <div class="stat-box__label">Team State Broadcast</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box__value">0 <span style="font-size: 1rem; color: var(--color-text-secondary);">leaks</span></div>
+                <div class="stat-box__label">Memory Leaks</div>
+            </div>
+        </div>
+
+        <!-- Player Attack -->
+        <div style="margin-bottom: 3rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Player Attack: 247 Bytes</h3>
+            <div class="grid-2" style="gap: 3rem;">
+                <div>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+                        When a player sends an attack action, the entire request fits in just 247 bytes. This includes the player ID, target ID, action type, and any action parameters. Typical unoptimized implementations handle this in 2-4 KB.
+                    </p>
+                    <div style="background: var(--color-bg-secondary); padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="font-weight: 600; margin-bottom: 1rem; color: #818cf8;">Optimization Techniques</h4>
+                        <ul class="list-unstyled">
+                            <li>Bit-packing for action types (enum compression)</li>
+                            <li>Delta-encoded player IDs (relative offsets rather than absolute)</li>
+                            <li>Removed null padding and metadata</li>
+                            <li>Used fixed-size structures instead of variable-length strings</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="assets/images/Anime_Majesty_packet_attack.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Anime_Majesty_packet_attack.png" alt="Attack packet structure">
+                </a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Team State Data -->
+        <div style="margin-bottom: 3rem; margin-top: 3rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Team State Broadcast: 577 Bytes</h3>
+            <div class="grid-2" style="gap: 3rem;">
+                <div>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+                        This is the minified data payload sent to all team members. It includes HP for all units (players + allies), turn order information, combat status effects, attack permissions, and stack state. The raw data before optimization would typically be 8-12 KB.
+                    </p>
+                    <div style="background: var(--color-bg-secondary); padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="font-weight: 600; margin-bottom: 1rem; color: #818cf8;">What's in 577 Bytes?</h4>
+                        <ul class="list-unstyled" style="margin-bottom: 0;">
+                            <li>HP values (quantized to 1-byte per unit)</li>
+                            <li>Turn order and timing data</li>
+                            <li>Status effect flags (bit-packed)</li>
+                            <li>Combat capability state</li>
+                            <li>Target focus information</li>
+                            <li>Cooldown timers (relative)</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="assets/images/Anime_Majesty_packet_data.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Anime_Majesty_packet_data.png" alt="Team state packet">
+                </a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Enemy Turn -->
+        <div style="margin-top: 3rem;">
+            <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Enemy Turn Broadcast</h3>
+            <div class="grid-2" style="gap: 3rem;">
+                <div>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+                        When enemies attack the team, all players receive an update containing the enemy's action, damage dealt, status effects applied, and animation parameters. Despite the amount of information, it remains extremely compact.
+                    </p>
+                    <div style="background: var(--color-bg-secondary); padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="font-weight: 600; margin-bottom: 1rem; color: #818cf8;">The Result</h4>
+                        <p style="color: var(--color-text-secondary); line-height: 1.7; font-size: 0.9375rem; margin-bottom: 1rem;">
+                            With 50 players in one server, network traffic remains manageable even during intense battles. Zero ping spikes mean smooth gameplay. Consistent memory usage means no leaks or server degradation over time.
+                        </p>
+                        <p style="color: var(--color-text-secondary); line-height: 1.7; font-size: 0.9375rem;">
+                            This is what happens when optimization isn't an afterthought—it's baked into the architecture from day one.
+                        </p>
+                    </div>
+                </div>
+                <a href="assets/images/Anime_Majesty_packet_enemyturn.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/Anime_Majesty_packet_enemyturn.png" alt="Enemy turn packet">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TURN-BASED SYSTEM VIDEO -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="text-align: center; margin-bottom: 1rem;">Turn-Based System in Action</h2>
+        <p style="color: var(--color-text-secondary); text-align: center; margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+            Watch the system in live gameplay. Notice the stability: no lag spikes, smooth animations, perfect synchronization across all players. The memory usage remains flat throughout, indicating zero memory leaks.
+        </p>
+
+        <div style="border-radius: 1rem; overflow: hidden; background: var(--color-bg-secondary);">
+            <iframe src="https://drive.google.com/file/d/194OowzezWOFOvXMmYcTiKKsQ4RPFxoKR/preview" width="100%" height="600" frameborder="0" allow="autoplay" style="display: block;"></iframe>
+        </div>
+
+        <div class="grid-3" style="margin-top: 3rem;">
+            <div class="card">
+                <h4 class="card__title">📊 Receive Bandwidth</h4>
+                <p class="card__text">Extremely small packets arriving at consistent intervals. No unexpected spikes even under heavy action.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">⚡ Network Latency</h4>
+                <p class="card__text">Fluctuations are minor and handled gracefully by client prediction. Never impacts gameplay feel.</p>
+            </div>
+            <div class="card">
+                <h4 class="card__title">💾 Memory Usage</h4>
+                <p class="card__text">Flat line before, during, and after gameplay. Zero memory leaks. Perfect resource management.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LESSONS LEARNED -->
+<section class="content-section container-sm">
+    <div class="reveal">
+        <h2 class="section__title" style="margin-bottom: 1rem;">Lessons Learned</h2>
+        <p class="section__subtitle">
+            Anime Majesty taught me that true game development excellence comes from meticulous system design, not flashy features.
+        </p>
+
+        <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+            <div class="card">
+                <h4 class="card__title">🎯 Optimization Must Come First</h4>
+                <p class="card__text">
+                    Don't build features and optimize later. Optimization is a core design requirement. Every architectural decision must consider bandwidth, CPU, and memory implications. These constraints force better design.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 class="card__title">🔒 Security is Architecture</h4>
+                <p class="card__text">
+                    Security isn't a feature you add after—it's a foundational principle. Server-side validation must be absolute. Never trust the client. Build systems that are secure by structure, not by luck.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 class="card__title">📦 Data Structures Matter</h4>
+                <p class="card__text">
+                    Choosing the right encoding, compression, and serialization approach can reduce data by 95%. Bit-packing, delta encoding, and fixed-size structures aren't premature optimization—they're essential architecture.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 class="card__title">🌐 Networked Systems are Hard</h4>
+                <p class="card__text">
+                    Multiplayer introduces latency, packet loss, and desynchronization. Building for multiple simultaneous players forces you to think about determinism, state reconciliation, and the unreliability of the network.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 class="card__title">🧪 Measure Everything</h4>
+                <p class="card__text">
+                    You can't optimize what you don't measure. Profile network bandwidth, memory allocations, frame times, and garbage collection. Data drives decisions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 class="card__title">✨ Simplicity is Sophistication</h4>
+                <p class="card__text">
+                    The best systems are invisible to the user. A seamless player experience hiding an incredibly complex backend is the hallmark of professional game development.
+                </p>
+            </div>
+        </div>
+
+        <div class="divider" style="margin: 3rem 0;"></div>
+
+        <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 1rem; text-align: center;">
+            Anime Majesty proved that when you prioritize correctness, performance, and security from day one, you build systems that can scale, adapt, and remain reliable under real-world conditions. This mindset carried forward into every subsequent project.
+        </p>
+    </div>
+</section>
+
+<!-- Back to Projects -->
+<section style="padding: 3rem 2rem; text-align: center;">
+    <a href="index.html#projects" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        Back to Projects
     </a>
-</section>
-
-<!-- ─── Core Features ─── -->
-<section style="padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;">
-    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; text-align: center;">Core Features</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-        <div style="padding: 2.5rem; background: var(--color-bg-secondary); border-radius: 1rem; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">⬆️</div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #818cf8;">Character Progression</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.6;">Leveling system with skill trees, ability unlocks, and customization.</p>
-        </div>
-
-        <div style="padding: 2.5rem; background: var(--color-bg-secondary); border-radius: 1rem; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">⚔️</div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #22d3ee;">Combat System</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.6;">Real-time combat with skill combos, dodges, and strategic abilities.</p>
-        </div>
-
-        <div style="padding: 2.5rem; background: var(--color-bg-secondary); border-radius: 1rem; text-align: center; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">👥</div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #a78bfa;">Multiplayer</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.6;">Real-time synchronization with seamless PvP and PvE modes.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ─── Technical Highlights ─── -->
-<section style="padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;">
-    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; text-align: center;">Technical Excellence</h2>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-        <div style="padding: 2rem; background: var(--color-bg-secondary); border-radius: 1rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #818cf8;">UI/UX Design</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.8;">
-                Intuitive interface with clarity and aesthetic consistency. Focus on accessibility and immersive user experience for anime world.
-            </p>
-        </div>
-        <div style="padding: 2rem; background: var(--color-bg-secondary); border-radius: 1rem;">
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #22d3ee;">Network Optimization</h3>
-            <p style="color: var(--color-text-secondary); line-height: 1.8;">
-                Advanced network synchronization using Roblox protocols. Low latency, smooth interactions, and responsive controls across all game modes.
-            </p>
-        </div>
-    </div>
 </section>
 
 </main>
 
-<!-- ─── Footer ─── -->
+<!-- Footer -->
 <footer>
     <div class="footer-inner">
         <p>&copy; 2025 BEDUL. All Rights Reserved.</p>
