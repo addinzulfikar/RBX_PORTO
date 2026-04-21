@@ -357,8 +357,8 @@
         <div class="grid-2" style="margin: 3rem 0;">
             <div style="text-align: center;">
                 <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Client-Side Rendering</h3>
-                <a href="assets/images/Anime_Majesty_client.png" target="_blank" rel="noopener" class="image-container">
-                    <img src="assets/images/Anime_Majesty_client.png" alt="Client architecture">
+                <a href="assets/images/client-architecture.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/client-architecture.png" alt="Client architecture">
                 </a>
                 <p style="color: var(--color-text-secondary); margin-top: 1rem; font-size: 0.9375rem;">
                     Handles visual rendering, animations, and user interactions while receiving authoritative state updates from server
@@ -366,8 +366,8 @@
             </div>
             <div style="text-align: center;">
                 <h3 style="color: #818cf8; margin-bottom: 1.5rem;">Server Authority</h3>
-                <a href="assets/images/Anime_Majesty_server.png" target="_blank" rel="noopener" class="image-container">
-                    <img src="assets/images/Anime_Majesty_server.png" alt="Server architecture">
+                <a href="assets/images/server-architecture.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/server-architecture.png" alt="Server architecture">
                 </a>
                 <p style="color: var(--color-text-secondary); margin-top: 1rem; font-size: 0.9375rem;">
                     Maintains complete game state, validates all actions, and broadcasts authoritative updates to all connected clients
@@ -376,7 +376,7 @@
         </div>
 
         <div class="card" style="margin-top: 2rem;">
-            <h4 class="card__title">🎯 The Integration Challenge</h4>
+            <h4 class="card__title">The Integration Challenge</h4>
             <p class="card__text" style="margin-bottom: 1rem;">
                 The biggest complexity arises from the team-based nature of Anime Majesty. When multiple players form a team to battle NPCs, the server must:
             </p>
@@ -401,8 +401,8 @@
         </p>
 
         <div style="margin: 3rem 0;">
-            <a href="assets/images/Anime_Majesty_framework.png" target="_blank" rel="noopener" class="image-container">
-                <img src="assets/images/Anime_Majesty_framework.png" alt="Server framework">
+            <a href="assets/images/framework.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/framework.png" alt="Server framework">
             </a>
         </div>
 
@@ -479,8 +479,8 @@
                         </ul>
                     </div>
                 </div>
-                <a href="assets/images/Anime_Majesty_packet_attack.png" target="_blank" rel="noopener" class="image-container">
-                    <img src="assets/images/Anime_Majesty_packet_attack.png" alt="Attack packet structure">
+                <a href="assets/images/packet-attack.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/packet-attack.png" alt="Attack packet structure">
                 </a>
             </div>
         </div>
@@ -507,8 +507,8 @@
                         </ul>
                     </div>
                 </div>
-                <a href="assets/images/Anime_Majesty_packet_data.png" target="_blank" rel="noopener" class="image-container">
-                    <img src="assets/images/Anime_Majesty_packet_data.png" alt="Team state packet">
+                <a href="assets/images/packet-data.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/packet-data.png" alt="Team state packet">
                 </a>
             </div>
         </div>
@@ -533,8 +533,8 @@
                         </p>
                     </div>
                 </div>
-                <a href="assets/images/Anime_Majesty_packet_enemyturn.png" target="_blank" rel="noopener" class="image-container">
-                    <img src="assets/images/Anime_Majesty_packet_enemyturn.png" alt="Enemy turn packet">
+                <a href="assets/images/packet-enemy.png" target="_blank" rel="noopener" class="image-container">
+                    <img src="assets/images/packet-enemy.png" alt="Enemy turn packet">
                 </a>
             </div>
         </div>
@@ -555,15 +555,15 @@
 
         <div class="grid-3" style="margin-top: 3rem;">
             <div class="card">
-                <h4 class="card__title">📊 Receive Bandwidth</h4>
+                <h4 class="card__title">Receive Bandwidth</h4>
                 <p class="card__text">Extremely small packets arriving at consistent intervals. No unexpected spikes even under heavy action.</p>
             </div>
             <div class="card">
-                <h4 class="card__title">⚡ Network Latency</h4>
+                <h4 class="card__title">Network Latency</h4>
                 <p class="card__text">Fluctuations are minor and handled gracefully by client prediction. Never impacts gameplay feel.</p>
             </div>
             <div class="card">
-                <h4 class="card__title">💾 Memory Usage</h4>
+                <h4 class="card__title">Memory Usage</h4>
                 <p class="card__text">Flat line before, during, and after gameplay. Zero memory leaks. Perfect resource management.</p>
             </div>
         </div>
@@ -578,47 +578,30 @@
             Anime Majesty taught me that true game development excellence comes from meticulous system design, not flashy features.
         </p>
 
-        <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+        <div class="grid-3">
             <div class="card">
-                <h4 class="card__title">🎯 Optimization Must Come First</h4>
-                <p class="card__text">
-                    Don't build features and optimize later. Optimization is a core design requirement. Every architectural decision must consider bandwidth, CPU, and memory implications. These constraints force better design.
-                </p>
+                <h4 class="card__title">Optimization Must Come First</h4>
+                <p class="card__text">Don't build features and optimize later. Optimization is a core design requirement. Every architectural decision must consider bandwidth, CPU, and memory implications. These constraints force better design.</p>
             </div>
-
             <div class="card">
-                <h4 class="card__title">🔒 Security is Architecture</h4>
-                <p class="card__text">
-                    Security isn't a feature you add after—it's a foundational principle. Server-side validation must be absolute. Never trust the client. Build systems that are secure by structure, not by luck.
-                </p>
+                <h4 class="card__title">Security is Architecture</h4>
+                <p class="card__text">Security isn't a feature you add after—it's a foundational principle. Server-side validation must be absolute. Never trust the client. Build systems that are secure by structure, not by luck.</p>
             </div>
-
             <div class="card">
-                <h4 class="card__title">📦 Data Structures Matter</h4>
-                <p class="card__text">
-                    Choosing the right encoding, compression, and serialization approach can reduce data by 95%. Bit-packing, delta encoding, and fixed-size structures aren't premature optimization—they're essential architecture.
-                </p>
+                <h4 class="card__title">Data Structures Matter</h4>
+                <p class="card__text">Choosing the right encoding, compression, and serialization approach can reduce data by 95%. Bit-packing, delta encoding, and fixed-size structures aren't premature optimization—they're essential architecture.</p>
             </div>
-
             <div class="card">
-                <h4 class="card__title">🌐 Networked Systems are Hard</h4>
-                <p class="card__text">
-                    Multiplayer introduces latency, packet loss, and desynchronization. Building for multiple simultaneous players forces you to think about determinism, state reconciliation, and the unreliability of the network.
-                </p>
+                <h4 class="card__title">Networked Systems are Hard</h4>
+                <p class="card__text">Multiplayer introduces latency, packet loss, and desynchronization. Building for multiple simultaneous players forces you to think about determinism, state reconciliation, and the unreliability of the network.</p>
             </div>
-
             <div class="card">
-                <h4 class="card__title">🧪 Measure Everything</h4>
-                <p class="card__text">
-                    You can't optimize what you don't measure. Profile network bandwidth, memory allocations, frame times, and garbage collection. Data drives decisions.
-                </p>
+                <h4 class="card__title">Measure Everything</h4>
+                <p class="card__text">You can't optimize what you don't measure. Profile network bandwidth, memory allocations, frame times, and garbage collection. Data drives decisions.</p>
             </div>
-
             <div class="card">
-                <h4 class="card__title">✨ Simplicity is Sophistication</h4>
-                <p class="card__text">
-                    The best systems are invisible to the user. A seamless player experience hiding an incredibly complex backend is the hallmark of professional game development.
-                </p>
+                <h4 class="card__title">Simplicity is Sophistication</h4>
+                <p class="card__text">The best systems are invisible to the user. A seamless player experience hiding an incredibly complex backend is the hallmark of professional game development.</p>
             </div>
         </div>
 
