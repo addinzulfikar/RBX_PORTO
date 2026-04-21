@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Commission - Community Reviews & Feedback</title>
+    <meta name="description" content="Community reviews and admin feedback from Ro-devs for Another Commission project.">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icons (Font Awesome) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Typography */
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; }
+        h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; }
+        h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+        body { line-height: 1.6; }
+        p { max-width: 65ch; }
+        
+        /* Spacing */
+        .container { max-width: 1200px; margin: 0 auto; }
+        .container-sm { max-width: 900px; margin: 0 auto; }
+        section { padding-left: 2rem; padding-right: 2rem; }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        
+        .hero__badge { display: inline-block; margin-bottom: 1.5rem; }
+        .hero__title { margin-bottom: 1rem; }
+        .hero__subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Images */
+        .image-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,.2);
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .section__title { margin-bottom: 1rem; color: var(--color-text); }
+        .section__subtitle {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 65ch;
+        }
+        
+        /* Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn svg { width: 18px; height: 18px; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ambient Background -->
+<div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
+<!-- Navbar -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">BEDUL</a>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div id="mobile-nav">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#contact">Contact</a>
+</div>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero container-sm">
+    <div class="reveal">
+        <span class="badge badge-featured hero__badge">Community Feedback</span>
+        
+        <h1 class="hero__title">Another Commission</h1>
+        
+        <p class="hero__subtitle">
+            A collection of authentic community reviews and admin feedback from Ro-devs. These testimonials represent the impact and quality of my work across various projects and collaborations.
+        </p>
+    </div>
+</section>
+
+<!-- COMMUNITY REVIEWS SECTION -->
+<section class="content-section container">
+    <div class="reveal">
+        <h2 class="section__title" style="text-align: center; margin-bottom: 1rem;">Community Testimonials</h2>
+        <p style="color: var(--color-text-secondary); text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Real feedback from community members who have experienced my work firsthand. These reviews reflect the quality, reliability, and impact of my contributions to various projects.
+        </p>
+        
+        <div class="grid-3" style="margin-bottom: 3rem;">
+            <a href="assets/images/casual_review_1.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_1.png" alt="Community review 1">
+            </a>
+            <a href="assets/images/casual_review_2.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_2.png" alt="Community review 2">
+            </a>
+            <a href="assets/images/casual_review_3.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_3.png" alt="Community review 3">
+            </a>
+            <a href="assets/images/casual_review_4.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_4.png" alt="Community review 4">
+            </a>
+            <a href="assets/images/casual_review_5.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_5.png" alt="Community review 5">
+            </a>
+            <a href="assets/images/casual_review_6.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_6.png" alt="Community review 6">
+            </a>
+            <a href="assets/images/casual_review_7.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_7.png" alt="Community review 7">
+            </a>
+            <a href="assets/images/casual_review_8.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_8.png" alt="Community review 8">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ADMIN FEEDBACK SECTION -->
+<section class="content-section container-sm" style="text-align: center;">
+    <div class="reveal">
+        <h2 class="section__title" style="margin-bottom: 1rem;">Admin Approval</h2>
+        <p style="color: var(--color-text-secondary); margin-bottom: 2rem; text-align: center; margin-left: auto; margin-right: auto; max-width: 700px;">
+            Feedback and approval from Ro-devs administration, validating the quality and professionalism of my work.
+        </p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+            <a href="assets/images/casual_review_admin.png" target="_blank" rel="noopener" class="image-container">
+                <img src="assets/images/casual_review_admin.png" alt="Admin review from Ro-devs">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Back to Projects -->
+<section style="padding: 3rem 2rem; text-align: center;">
+    <a href="index.html#projects" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        Back to Projects
+    </a>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <p>&copy; 2025 BEDUL. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
