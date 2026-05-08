@@ -639,7 +639,68 @@ section {
     box-shadow: 0 0 12px rgba(99,102,241,.1);
 }
 
+.project-link-btn.project-link-highlight {
+    position: relative;
+    color: var(--color-accent);
+    border-color: rgba(99,102,241,.45);
+    background: linear-gradient(135deg, rgba(99,102,241,.18), rgba(139,92,246,.18));
+    box-shadow: 0 0 0 rgba(99,102,241,0);
+    overflow: hidden;
+    animation: project-link-pulse 2.4s ease-in-out infinite;
+}
+
+.project-link-btn.project-link-highlight::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(120deg, transparent 0%, rgba(129,140,248,.35) 45%, transparent 70%);
+    transform: translateX(-120%);
+    opacity: .75;
+    animation: project-link-shimmer 3.2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.project-link-btn.project-link-highlight > * {
+    position: relative;
+    z-index: 1;
+}
+
+.project-link-btn.project-link-highlight:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: linear-gradient(135deg, rgba(99,102,241,.25), rgba(139,92,246,.25));
+    box-shadow: 0 0 16px rgba(99,102,241,.28);
+}
+
 .project-link-btn svg { width: 14px; height: 14px; }
+
+@keyframes project-link-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(99,102,241,0);
+    }
+    50% {
+        box-shadow: 0 0 18px rgba(99,102,241,.28);
+    }
+}
+
+@keyframes project-link-shimmer {
+    0% {
+        transform: translateX(-120%);
+    }
+    60% {
+        transform: translateX(120%);
+    }
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-link-btn.project-link-highlight,
+    .project-link-btn.project-link-highlight::after {
+        animation: none;
+    }
+}
 
 /* ─── Skills Section ─── */
 .skills-grid {
