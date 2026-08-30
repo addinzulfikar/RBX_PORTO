@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEDUL - FullStack Developer & Game Developer</title>
-    <meta name="description" content="FullStack Developer with 5+ years experience. Specializing in game development, web development, and system design. 70+ commissions completed.">
+    <meta name="description"
+        content="FullStack Developer with 5+ years experience. Specializing in game development, web development, and system design. 70+ commissions completed.">
     <meta name="theme-color" content="#fafafa">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Icons (Font Awesome) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -18,555 +22,766 @@
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- ─── Ambient Background ─── -->
-<div class="ambient-bg" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-</div>
-
-<!-- ─── Navbar ─── -->
-<nav id="navbar">
-    <div class="nav-inner">
-        <a href="#hero" class="nav-brand">BEDUL</a>
-
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#about" onclick="smoothScroll(event,'#about')">About</a></li>
-            <li><a href="#projects" onclick="smoothScroll(event,'#projects')">Projects</a></li>
-            <li><a href="#skills" onclick="smoothScroll(event,'#skills')">Skills</a></li>
-            <li><a href="#contact" onclick="smoothScroll(event,'#contact')">Contact</a></li>
-        </ul>
-
-        <div style="display:flex;align-items:center;gap:.5rem;">
-            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-                <!-- Moon icon (shown in light mode) -->
-                <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                <!-- Sun icon (shown in dark mode) -->
-                <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            </button>
-            <button id="mobile-menu-btn" aria-label="Toggle menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            </button>
-        </div>
-    </div>
-</nav>
-
-<!-- Mobile Nav -->
-<div id="mobile-nav">
-    <a href="#about" onclick="mobileSmoothScroll(event,'#about')">About</a>
-    <a href="#projects" onclick="mobileSmoothScroll(event,'#projects')">Projects</a>
-    <a href="#skills" onclick="mobileSmoothScroll(event,'#skills')">Skills</a>
-    <a href="#contact" onclick="mobileSmoothScroll(event,'#contact')">Contact</a>
-</div>
-
-<main>
-<!-- ─── Hero ─── -->
-<section id="hero">
-    <div class="hero-inner">
-        <div class="hero-available">
-            <span class="pulse-dot"></span>
-            Available for work
-        </div>
-
-        <h1 class="hero-title" aria-label="FullStack Developer">
-            <span class="char" style="animation-delay:.15s">F</span><span class="char" style="animation-delay:.21s">U</span><span class="char" style="animation-delay:.27s">L</span><span class="char" style="animation-delay:.33s">L</span><span class="char" style="animation-delay:.39s">S</span><span class="char" style="animation-delay:.45s">T</span><span class="char" style="animation-delay:.51s">A</span><span class="char" style="animation-delay:.57s">C</span><span class="char" style="animation-delay:.63s">K</span>
-        </h1>
-
-        <div class="hero-divider"></div>
-
-        <p class="hero-subtitle">
-            FullStack Developer with 5+ years of professional experience<br>
-            <span class="accent-text">Specializing in Game Development, Web Systems & Scalable Architecture</span>
-        </p>
-
-        <div class="hero-actions">
-            <a href="#contact" onclick="smoothScroll(event,'#contact')" class="btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                Get in Touch
-            </a>
-            <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
-                GitHub
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ─── About ─── -->
-<section id="about">
-    <div class="section-header reveal">
-        <h2 class="section-title">About</h2>
-        <p class="section-subtitle">Professional developer with expertise in building scalable systems, game development, and modern web applications.</p>
+    <!-- ─── Ambient Background ─── -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
-    <div class="about-card reveal">
-        <div class="stats-grid">
-            <!-- Stat 1 -->
-            <div class="stat-card">
-                <div class="stat-icon" style="background:rgba(99,102,241,.15);box-shadow:0 0 16px rgba(99,102,241,.2)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#818cf8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <div class="stat-number" data-target="5" data-suffix="+">0</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
+    <!-- ─── Navbar ─── -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand">BEDUL</a>
 
-            <!-- Stat 2 -->
-            <div class="stat-card">
-                <div class="stat-icon" style="background:rgba(6,182,212,.15);box-shadow:0 0 16px rgba(6,182,212,.2)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22d3ee" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <div class="stat-number" data-target="70" data-suffix="+">0</div>
-                <div class="stat-label">Commissions Completed</div>
-            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" onclick="smoothScroll(event,'#about')">About</a></li>
+                <li><a href="#projects" onclick="smoothScroll(event,'#projects')">Projects</a></li>
+                <li><a href="#skills" onclick="smoothScroll(event,'#skills')">Skills</a></li>
+                <li><a href="#contact" onclick="smoothScroll(event,'#contact')">Contact</a></li>
+            </ul>
 
-            <!-- Stat 3 -->
-            <div class="stat-card">
-                <div class="stat-icon" style="background:rgba(234,179,8,.12);box-shadow:0 0 16px rgba(234,179,8,.2)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eab308" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="stat-number" data-target="4" data-suffix="">0</div>
-                <div class="stat-label">Major Projects</div>
-            </div>
-        </div>
-
-        <p style="font-size:.9375rem;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1rem;">
-            FullStack Developer with 5+ years of experience in game development, web systems, and scalable architecture. Specializing in complex system design using modern technologies and best practices.
-        </p>
-
-        <div class="availability-row">
-            <span class="avail-label">Availability</span>
-            <div class="avail-item">
-                <span class="pulse-dot" style="width:8px;height:8px;flex-shrink:0;position:relative;display:inline-block"></span>
-                <span style="font-size:.8125rem;color:var(--color-text-secondary)">Collaboration</span>
-                <span class="avail-status" style="color:var(--color-available)">Open</span>
-            </div>
-            <div class="avail-item">
-                <span style="width:8px;height:8px;border-radius:50%;background:var(--color-limited);display:inline-block;flex-shrink:0"></span>
-                <span style="font-size:.8125rem;color:var(--color-text-secondary)">Freelance</span>
-                <span class="avail-status" style="color:var(--color-limited)">Limited</span>
-            </div>
-            <div class="avail-item">
-                <span style="width:8px;height:8px;border-radius:50%;background:var(--color-available);display:inline-block;flex-shrink:0"></span>
-                <span style="font-size:.8125rem;color:var(--color-text-secondary)">Full-time</span>
-                <span class="avail-status" style="color:var(--color-available)">Open</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ─── Experience / Projects ─── -->
-<section id="projects">
-    <div class="section-header reveal">
-        <h2 class="section-title">Major Projects</h2>
-        <p class="section-subtitle">Showcase of significant projects and commissions completed throughout my career.</p>
-    </div>
-
-    <div class="projects-grid">
-
-        <!-- Stone World -->
-        <div class="project-card featured reveal">
-            <div class="featured-bar"></div>
-            <div class="project-card-header">
-                <img src="assets/images/stone-world/Stone_world.png" alt="Stone World" style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
-                <div class="project-meta">
-                    <div class="project-title-row">
-                        <span class="project-title">Stone World</span>
-                        <span class="badge badge-featured">Featured</span>
-                        <span class="badge badge-active">
-                            <span class="pulse-dot" style="width:6px;height:6px;position:relative;display:inline-block"></span>
-                            Active
-                        </span>
-                    </div>
-                    <div class="project-role">FullStack Developer</div>
-                </div>
-            </div>
-            <p class="project-desc">A large-scale RPG game built with a dedicated team across multiple departments. Developed as Head Developer for Scripters, coordinating complex backend systems, managing team integration, and ensuring seamless collaboration across all game systems.</p>
-            <div class="project-links">
-                <a href="stone-world.html" class="project-link-btn project-link-highlight">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    View Project
-                </a>
-            </div>
-        </div>
-
-        <!-- Anime Majesty -->
-        <div class="project-card featured reveal">
-            <div class="featured-bar"></div>
-            <div class="project-card-header">
-                <img src="assets/images/anime-majesty/Anime_Majesty.png" alt="Anime Majesty" style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
-                <div class="project-meta">
-                    <div class="project-title-row">
-                        <span class="project-title">Anime Majesty</span>
-                        <span class="badge badge-featured">Featured</span>
-                        <span class="badge badge-active">
-                            <span class="pulse-dot" style="width:6px;height:6px;position:relative;display:inline-block"></span>
-                            Active
-                        </span>
-                    </div>
-                    <div class="project-role">Game Developer</div>
-                </div>
-            </div>
-            <p class="project-desc">Turn-based RPG emphasizing extreme optimization and security. Built with complex backend architecture, achieving 247-byte attack packets and zero memory leaks across 50+ concurrent players. Security-first design with proven exploit mitigation.</p>
-            <div class="project-links">
-                <a href="anime-majesty.html" class="project-link-btn project-link-highlight">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    View Project
-                </a>
-            </div>
-        </div>
-
-        <!-- PlayVerse -->
-        <div class="project-card featured reveal">
-            <div class="featured-bar"></div>
-            <div class="project-card-header">
-                <img src="assets/images/PlayVerse/logo.webp" alt="PlayVerse" style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
-                <div class="project-meta">
-                    <div class="project-title-row">
-                        <span class="project-title">PlayVerse</span>
-                        <span class="badge badge-featured">Featured</span>
-                        <span class="badge badge-active">
-                            <span class="pulse-dot" style="width:6px;height:6px;position:relative;display:inline-block"></span>
-                            Active
-                        </span>
-                    </div>
-                    <div class="project-role">Game Developer & QA Engineer</div>
-                </div>
-            </div>
-            <p class="project-desc">Game development and QA engineering for a major Roblox studio. Focused on bug fixing, transaction validation, and backend service auditing for titles like +1 Sword Fighting Escape.</p>
-            <div class="project-links">
-                <a href="playverse.html" class="project-link-btn project-link-highlight">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    View Project
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ─── Other Projects ─── -->
-<section style="padding:4rem 2rem;max-width:1200px;margin:0 auto;">
-    <div class="section-header reveal">
-        <h2 class="section-title">Other Projects</h2>
-        <p class="section-subtitle">Additional projects and contributions.</p>
-    </div>
-
-    <div class="projects-grid">
-
-        <!-- Liberty Height -->
-        <div class="project-card reveal">
-            <div class="project-card-header">
-                <img src="assets/images/liberty-height/Liberty_Height.png" alt="Liberty Height" style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
-                <div class="project-meta">
-                    <div class="project-title-row">
-                        <span class="project-title">Liberty Height</span>
-                    </div>
-                    <div class="project-role">Game Developer & System Architect</div>
-                </div>
-            </div>
-            <p class="project-desc">Contribute to 3 Million visits game with FPS gameplay systems including gun mechanics, phone integration, and physics-based ragdoll.</p>
-            <div class="project-links">
-                <a href="liberty-height.html" class="project-link-btn project-link-highlight">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    View Project
-                </a>
-            </div>
-        </div>
-
-        <!-- Another Commission -->
-        <div class="project-card reveal">
-            <div class="project-card-header">
-                <div style="width:5rem;height:5rem;border-radius:1rem;background:linear-gradient(135deg, #818cf8, #a78bfa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.5rem;">
-                    ⭐
-                </div>
-                <div class="project-meta">
-                    <div class="project-title-row">
-                        <span class="project-title">Another Commission</span>
-                    </div>
-                    <div class="project-role">Community Reviews & Feedback</div>
-                </div>
-            </div>
-            <p class="project-desc">A showcase of project reviews from community members and admin feedback from Ro-devs. Featuring testimonials and insights from 8+ community reviews plus admin approval.</p>
-            <div class="project-links">
-                <a href="another-commission.html" class="project-link-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    View Reviews
-                </a>
-            </div>
-        </div>
-
-  <!-- Spaceoid GameDevs -->
-        <div class="project-card reveal">
-            <div class="project-card-header">
-                <img src="assets/images/spaceoid-gamedevs/Spaceoid_GameDevs.png" alt="Spaceoid GameDevs" style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
-                <div class="project-meta">
-                    <div class="project-title-row">
-                        <span class="project-title">Spaceoid GameDevs</span>
-                    </div>
-                    <div class="project-role">Game Developer & Consultant</div>
-                </div>
-            </div>
-            <p class="project-desc">Space-themed game with exploration, resource management, and strategy gameplay systems.</p>
-            <div class="project-links">
-                <button type="button" class="project-link-btn" disabled>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    In Progress
+            <div style="display:flex;align-items:center;gap:.5rem;">
+                <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                    <!-- Moon icon (shown in light mode) -->
+                    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                    <!-- Sun icon (shown in dark mode) -->
+                    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="display:none">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
+                <button id="mobile-menu-btn" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
                 </button>
             </div>
         </div>
+    </nav>
 
-
-    </div>
-</section>
-
-<!-- ─── Skills ─── -->
-<section id="skills">
-    <div class="section-header reveal">
-        <h2 class="section-title">Advanced Concepts & Technologies</h2>
-        <p class="section-subtitle">Core expertise and specialized technologies I work with.</p>
+    <!-- Mobile Nav -->
+    <div id="mobile-nav">
+        <a href="#about" onclick="mobileSmoothScroll(event,'#about')">About</a>
+        <a href="#projects" onclick="mobileSmoothScroll(event,'#projects')">Projects</a>
+        <a href="#skills" onclick="mobileSmoothScroll(event,'#skills')">Skills</a>
+        <a href="#contact" onclick="mobileSmoothScroll(event,'#contact')">Contact</a>
     </div>
 
-    <div class="skills-grid" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+    <main>
+        <!-- ─── Hero ─── -->
+        <section id="hero">
+            <div class="hero-inner">
 
-        <!-- Advanced Frameworks & Services -->
-        <div class="skill-card reveal">
-            <div class="skill-card-header">
-                <div class="skill-cat-icon" style="background:rgba(99,102,241,.15);box-shadow:0 0 12px rgba(99,102,241,.15)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#818cf8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <span class="skill-cat-name">Advanced Services</span>
-            </div>
-            <div class="skill-tags">
-                <span class="skill-tag">ProfileStore</span>
-                <span class="skill-tag">ReplicaService</span>
-                <span class="skill-tag">Datastore2</span>
-                <span class="skill-tag">Knit Framework</span>
-                <span class="skill-tag">ByteNet</span>
-                <span class="skill-tag">Maid/Trove</span>
-            </div>
-        </div>
 
-        <!-- Performance & Optimization -->
-        <div class="skill-card reveal">
-            <div class="skill-card-header">
-                <div class="skill-cat-icon" style="background:rgba(139,92,246,.15);box-shadow:0 0 12px rgba(139,92,246,.15)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#a78bfa" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                </div>
-                <span class="skill-cat-name">Performance & Data</span>
-            </div>
-            <div class="skill-tags">
-                <span class="skill-tag">Optimization & Tuning</span>
-                <span class="skill-tag">Data Serialization</span>
-                <span class="skill-tag">Data Deserialization</span>
-                <span class="skill-tag">Scalable System Design</span>
-                <span class="skill-tag">System Maintenance</span>
-                <span class="skill-tag">Build & Optimization</span>
-            </div>
-        </div>
+                <h1 class="hero-title" aria-label="FullStack Developer">
+                    <span class="char" style="animation-delay:.15s">F</span><span class="char"
+                        style="animation-delay:.21s">U</span><span class="char"
+                        style="animation-delay:.27s">L</span><span class="char"
+                        style="animation-delay:.33s">L</span><span class="char"
+                        style="animation-delay:.39s">S</span><span class="char"
+                        style="animation-delay:.45s">T</span><span class="char"
+                        style="animation-delay:.51s">A</span><span class="char"
+                        style="animation-delay:.57s">C</span><span class="char" style="animation-delay:.63s">K</span>
+                </h1>
 
-        <!-- Programming Languages & Tools -->
-        <div class="skill-card reveal">
-            <div class="skill-card-header">
-                <div class="skill-cat-icon" style="background:rgba(234,179,8,.12);box-shadow:0 0 12px rgba(234,179,8,.15)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eab308" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                </div>
-                <span class="skill-cat-name">Languages & Tools</span>
-            </div>
-            <div class="skill-tags">
-                <span class="skill-tag">Lua</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">PHP</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Problem Solving</span>
-                <span class="skill-tag">Team Collaboration</span>
-            </div>
-        </div>
+                <div class="hero-divider"></div>
 
-    </div>
-</section>
-
-<!-- ─── What I Offers ─── -->
-<section id="offers" style="padding: 5rem 2rem; background: var(--color-bg);">
-    <div style="max-width: 1000px; margin: 0 auto;">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
-            <h2 class="section-title">What I Offer</h2>
-            <p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
-                Based on years of experience working on complex projects, here's what I bring to the table.
-            </p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <!-- Optimization & Structured Frameworks -->
-            <div class="skill-card reveal">
-                <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                    <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Optimization & Structured Frameworks</span>
-                </div>
-                <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                    From working on Anime Majesty, I learned that optimization isn't a feature—it's a core requirement. I provide:
+                <p class="hero-subtitle">
+                    FullStack Developer with 5+ years of professional experience<br>
+                    <span class="accent-text">Specializing in Game Development, Web Systems & Scalable
+                        Architecture</span>
                 </p>
-                <div style="list-style: none; padding: 0; margin: 0;">
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Advanced packet optimization & network efficiency</span>
-                    </div>
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Custom architecture design for scalable systems</span>
-                    </div>
-                    <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Structured frameworks that grow with your project</span>
-                    </div>
+
+                <div class="hero-actions">
+                    <a href="#contact" onclick="smoothScroll(event,'#contact')" class="btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                        Get in Touch
+                    </a>
+                    <a href="https://www.roblox.com/users/1468004656/profile" target="_blank" rel="noopener"
+                        class="btn-secondary"
+                        style="background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(37,99,235,.06)); border-color: rgba(96,165,250,.3); color: #60a5fa;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" viewBox="0 0 24 24" fill="none"
+                            stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="10" width="20" height="12" rx="4" />
+                            <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
+                            <circle cx="15.5" cy="15.5" r="1" fill="#60a5fa" stroke="none" />
+                            <circle cx="17.5" cy="13.5" r="1" fill="#60a5fa" stroke="none" />
+                            <line x1="7" y1="13" x2="7" y2="17" />
+                            <line x1="5" y1="15" x2="9" y2="15" />
+                        </svg>
+                        Roblox Profile
+                    </a>
+                    <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
+                        </svg>
+                        GitHub
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Experience & Reliability -->
-            <div class="skill-card reveal">
-                <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                    <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Experience & Reliability</span>
+        <!-- ─── About ─── -->
+        <section id="about">
+            <div class="section-header reveal">
+                <h2 class="section-title">About</h2>
+                <p class="section-subtitle">Professional developer with expertise in building scalable systems, game
+                    development, and modern web applications.</p>
+            </div>
+
+            <div class="about-card reveal">
+                <div class="stats-grid">
+                    <!-- Stat 1 -->
+                    <div class="stat-card">
+                        <div class="stat-icon"
+                            style="background:rgba(99,102,241,.15);box-shadow:0 0 16px rgba(99,102,241,.2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#818cf8"
+                                stroke-width="2">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="5" data-suffix="+">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="stat-card">
+                        <div class="stat-icon"
+                            style="background:rgba(6,182,212,.15);box-shadow:0 0 16px rgba(6,182,212,.2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22d3ee"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="70" data-suffix="+">0</div>
+                        <div class="stat-label">Commissions Completed</div>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="stat-card">
+                        <div class="stat-icon"
+                            style="background:rgba(234,179,8,.12);box-shadow:0 0 16px rgba(234,179,8,.2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eab308"
+                                stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="4" data-suffix="">0</div>
+                        <div class="stat-label">Major Projects</div>
+                    </div>
                 </div>
-                <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                    I've worked on several large-scale projects that taught me exactly what works and what doesn't:
+
+                <p style="font-size:.9375rem;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1rem;">
+                    FullStack Developer with 5+ years of experience in game development, web systems, and scalable
+                    architecture. Specializing in complex system design using modern technologies and best practices.
                 </p>
-                <div style="list-style: none; padding: 0; margin: 0;">
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>5+ years of professional development experience</span>
+
+                <div class="availability-row">
+                    <span class="avail-label">Availability</span>
+                    <div class="avail-item">
+                        <span class="pulse-dot"
+                            style="width:8px;height:8px;flex-shrink:0;position:relative;display:inline-block"></span>
+                        <span style="font-size:.8125rem;color:var(--color-text-secondary)">Collaboration</span>
+                        <span class="avail-status" style="color:var(--color-available)">Open</span>
                     </div>
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Proven track record with complex systems</span>
+                    <div class="avail-item">
+                        <span
+                            style="width:8px;height:8px;border-radius:50%;background:var(--color-limited);display:inline-block;flex-shrink:0"></span>
+                        <span style="font-size:.8125rem;color:var(--color-text-secondary)">Freelance</span>
+                        <span class="avail-status" style="color:var(--color-limited)">Limited</span>
                     </div>
-                    <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>I know what I'm doing—and I deliver results</span>
+                    <div class="avail-item">
+                        <span
+                            style="width:8px;height:8px;border-radius:50%;background:var(--color-available);display:inline-block;flex-shrink:0"></span>
+                        <span style="font-size:.8125rem;color:var(--color-text-secondary)">Full-time</span>
+                        <span class="avail-status" style="color:var(--color-available)">Open</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Affordable Expertise -->
-            <div class="skill-card reveal">
-                <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                    <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Affordable Expertise</span>
+        <!-- ─── Experience / Projects ─── -->
+        <section id="projects">
+            <div class="section-header reveal">
+                <h2 class="section-title">Major Projects</h2>
+                <p class="section-subtitle">Showcase of significant projects and commissions completed throughout my
+                    career.</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Stone World -->
+                <div class="project-card featured reveal">
+                    <div class="featured-bar"></div>
+                    <div class="project-card-header">
+                        <img src="assets/images/stone-world/Stone_world.png" alt="Stone World"
+                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">Stone World</span>
+                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-active">
+                                    <span class="pulse-dot"
+                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    Active
+                                </span>
+                            </div>
+                            <div class="project-role">FullStack Developer</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">A large-scale RPG game built with a dedicated team across multiple
+                        departments. Developed as Head Developer for Scripters, coordinating complex backend systems,
+                        managing team integration, and ensuring seamless collaboration across all game systems.</p>
+                    <div class="project-links">
+                        <a href="stone-world.html" class="project-link-btn project-link-highlight">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Project
+                        </a>
+                    </div>
                 </div>
-                <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                    You get professional-grade development without the enterprise price tag:
+
+                <!-- Anime Majesty -->
+                <div class="project-card featured reveal">
+                    <div class="featured-bar"></div>
+                    <div class="project-card-header">
+                        <img src="assets/images/anime-majesty/Anime_Majesty.png" alt="Anime Majesty"
+                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">Anime Majesty</span>
+                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-active">
+                                    <span class="pulse-dot"
+                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    Active
+                                </span>
+                            </div>
+                            <div class="project-role">Game Developer</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">Turn-based RPG emphasizing extreme optimization and security. Built with
+                        complex backend architecture, achieving 247-byte attack packets and zero memory leaks across 50+
+                        concurrent players. Security-first design with proven exploit mitigation.</p>
+                    <div class="project-links">
+                        <a href="anime-majesty.html" class="project-link-btn project-link-highlight">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PlayVerse -->
+                <div class="project-card featured reveal">
+                    <div class="featured-bar"></div>
+                    <div class="project-card-header">
+                        <img src="assets/images/PlayVerse/logo.webp" alt="PlayVerse"
+                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">PlayVerse</span>
+                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-active">
+                                    <span class="pulse-dot"
+                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    Active
+                                </span>
+                            </div>
+                            <div class="project-role">Game Developer & QA Engineer</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">Game development and QA engineering for a major Roblox studio. Focused on
+                        bug fixing, transaction validation, and backend service auditing for titles like +1 Sword
+                        Fighting Escape.</p>
+                    <div class="project-links">
+                        <a href="playverse.html" class="project-link-btn project-link-highlight">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ─── Other Projects ─── -->
+        <section style="padding:4rem 2rem;max-width:1200px;margin:0 auto;">
+            <div class="section-header reveal">
+                <h2 class="section-title">Other Projects</h2>
+                <p class="section-subtitle">Additional projects and contributions.</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Liberty Height -->
+                <div class="project-card reveal">
+                    <div class="project-card-header">
+                        <img src="assets/images/liberty-height/Liberty_Height.png" alt="Liberty Height"
+                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">Liberty Height</span>
+                            </div>
+                            <div class="project-role">Game Developer & System Architect</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">Contribute to 3 Million visits game with FPS gameplay systems including gun
+                        mechanics, phone integration, and physics-based ragdoll.</p>
+                    <div class="project-links">
+                        <a href="liberty-height.html" class="project-link-btn project-link-highlight">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Another Commission -->
+                <div class="project-card reveal">
+                    <div class="project-card-header">
+                        <div
+                            style="width:5rem;height:5rem;border-radius:1rem;background:linear-gradient(135deg, #818cf8, #a78bfa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.5rem;">
+                            ⭐
+                        </div>
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">Another Commission</span>
+                            </div>
+                            <div class="project-role">Community Reviews & Feedback</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">A showcase of project reviews from community members and admin feedback from
+                        Ro-devs. Featuring testimonials and insights from 8+ community reviews plus admin approval.</p>
+                    <div class="project-links">
+                        <a href="another-commission.html" class="project-link-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            View Reviews
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Spaceoid GameDevs -->
+                <div class="project-card reveal">
+                    <div class="project-card-header">
+                        <img src="assets/images/spaceoid-gamedevs/Spaceoid_GameDevs.png" alt="Spaceoid GameDevs"
+                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">Spaceoid GameDevs</span>
+                            </div>
+                            <div class="project-role">Game Developer & Consultant</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">Space-themed game with exploration, resource management, and strategy
+                        gameplay systems.</p>
+                    <div class="project-links">
+                        <button type="button" class="project-link-btn" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            In Progress
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- ─── Skills ─── -->
+        <section id="skills">
+            <div class="section-header reveal">
+                <h2 class="section-title">Advanced Concepts & Technologies</h2>
+                <p class="section-subtitle">Core expertise and specialized technologies I work with.</p>
+            </div>
+
+            <div class="skills-grid"
+                style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+                <!-- Advanced Frameworks & Services -->
+                <div class="skill-card reveal">
+                    <div class="skill-card-header">
+                        <div class="skill-cat-icon"
+                            style="background:rgba(99,102,241,.15);box-shadow:0 0 12px rgba(99,102,241,.15)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#818cf8"
+                                stroke-width="2">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <span class="skill-cat-name">Advanced Services</span>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ProfileStore</span>
+                        <span class="skill-tag">ReplicaService</span>
+                        <span class="skill-tag">Datastore2</span>
+                        <span class="skill-tag">Knit Framework</span>
+                        <span class="skill-tag">ByteNet</span>
+                        <span class="skill-tag">Maid/Trove</span>
+                    </div>
+                </div>
+
+                <!-- Performance & Optimization -->
+                <div class="skill-card reveal">
+                    <div class="skill-card-header">
+                        <div class="skill-cat-icon"
+                            style="background:rgba(139,92,246,.15);box-shadow:0 0 12px rgba(139,92,246,.15)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#a78bfa"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                        </div>
+                        <span class="skill-cat-name">Performance & Data</span>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Optimization & Tuning</span>
+                        <span class="skill-tag">Data Serialization</span>
+                        <span class="skill-tag">Data Deserialization</span>
+                        <span class="skill-tag">Scalable System Design</span>
+                        <span class="skill-tag">System Maintenance</span>
+                        <span class="skill-tag">Build & Optimization</span>
+                    </div>
+                </div>
+
+                <!-- Programming Languages & Tools -->
+                <div class="skill-card reveal">
+                    <div class="skill-card-header">
+                        <div class="skill-cat-icon"
+                            style="background:rgba(234,179,8,.12);box-shadow:0 0 12px rgba(234,179,8,.15)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eab308"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <span class="skill-cat-name">Languages & Tools</span>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Lua</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ─── What I Offers ─── -->
+        <section id="offers" style="padding: 5rem 2rem; background: var(--color-bg);">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title">What I Offer</h2>
+                    <p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
+                        Based on years of experience working on complex projects, here's what I bring to the table.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Optimization & Structured Frameworks -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Optimization &
+                                Structured Frameworks</span>
+                        </div>
+                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                            From working on Anime Majesty, I learned that optimization isn't a feature—it's a core
+                            requirement. I provide:
+                        </p>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Advanced packet optimization & network efficiency</span>
+                            </div>
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Custom architecture design for scalable systems</span>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Structured frameworks that grow with your project</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience & Reliability -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Experience &
+                                Reliability</span>
+                        </div>
+                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                            I've worked on several large-scale projects that taught me exactly what works and what
+                            doesn't:
+                        </p>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>5+ years of professional development experience</span>
+                            </div>
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Proven track record with complex systems</span>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>I know what I'm doing—and I deliver results</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Affordable Expertise -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Affordable
+                                Expertise</span>
+                        </div>
+                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                            You get professional-grade development without the enterprise price tag:
+                        </p>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Competitive rates that make sense</span>
+                            </div>
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Enterprise-level skills and work quality</span>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Value that exceeds the investment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security & Protection -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Security &
+                                Protection</span>
+                        </div>
+                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                            I've studied security extensively—both how to exploit vulnerabilities and how to prevent
+                            them:
+                        </p>
+                        <div style="list-style: none; padding: 0; margin: 0;">
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Understanding of exploit techniques & mitigation</span>
+                            </div>
+                            <div
+                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>Server-side validation & data protection</span>
+                            </div>
+                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
+                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
+                                <span>System design with security as priority</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── Contact ─── -->
+        <section id="contact">
+            <div class="reveal">
+                <h2 class="contact-heading">
+                    Let's work<br>
+                    <span class="accent-gradient-text">together.</span>
+                </h2>
+                <p style="font-size:.9375rem;color:var(--color-text-secondary);max-width:30rem;">
+                    Have a project or want to collaborate? Get in touch with me through any of the platforms below.
                 </p>
-                <div style="list-style: none; padding: 0; margin: 0;">
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Competitive rates that make sense</span>
-                    </div>
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Enterprise-level skills and work quality</span>
-                    </div>
-                    <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Value that exceeds the investment</span>
-                    </div>
-                </div>
             </div>
 
-            <!-- Security & Protection -->
-            <div class="skill-card reveal">
-                <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                    <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Security & Protection</span>
+            <div class="contact-cards">
+
+                <!-- Discord -->
+                <div class="contact-card reveal">
+                    <div class="contact-card-header">
+                        <div class="contact-icon-wrap"
+                            style="background:rgba(88,101,242,.15);box-shadow:0 0 16px rgba(88,101,242,.15)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#5865F2" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-card-title">Discord</div>
+                            <div class="contact-card-sub">Quick chat & collaboration</div>
+                        </div>
+                        <div class="status-online">
+                            <span class="pulse-dot"
+                                style="width:8px;height:8px;flex-shrink:0;position:relative;display:inline-block"></span>
+                            Online
+                        </div>
+                    </div>
+                    <a href="https://discord.com/users/323107249264525324" target="_blank" rel="noopener"
+                        class="btn-primary" style="width:100%;justify-content:center;font-size:.875rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#5865F2" viewBox="0 0 24 24" width="16"
+                            height="16">
+                            <path
+                                d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z" />
+                        </svg>
+                        Open Discord
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2" width="14" height="14">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
                 </div>
-                <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                    I've studied security extensively—both how to exploit vulnerabilities and how to prevent them:
-                </p>
-                <div style="list-style: none; padding: 0; margin: 0;">
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Understanding of exploit techniques & mitigation</span>
+
+                <!-- GitHub -->
+                <div class="contact-card reveal">
+                    <div class="contact-card-header">
+                        <div class="contact-icon-wrap"
+                            style="background:rgba(139,92,246,.12);box-shadow:0 0 16px rgba(139,92,246,.12)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#a78bfa" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-card-title">GitHub</div>
+                            <div class="contact-card-sub">Open source projects</div>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>Server-side validation & data protection</span>
-                    </div>
-                    <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                        <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                        <span>System design with security as priority</span>
-                    </div>
+                    <p class="contact-desc">Check out my repositories, contributions, and open source projects. Feel
+                        free to star or fork.</p>
+                    <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary"
+                        style="width:100%;justify-content:center;font-size:.875rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="16"
+                            height="16">
+                            <path
+                                d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.27-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
+                        </svg>
+                        View GitHub
+                    </a>
                 </div>
+
+                <!-- Roblox Profile -->
+                <div class="contact-card reveal">
+                    <div class="contact-card-header">
+                        <div class="contact-icon-wrap"
+                            style="background:rgba(37,99,235,.12);box-shadow:0 0 16px rgba(96,165,250,.15)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#60a5fa"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="10" width="20" height="12" rx="4" />
+                                <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
+                                <circle cx="15.5" cy="15.5" r="1" fill="#60a5fa" stroke="none" />
+                                <circle cx="17.5" cy="13.5" r="1" fill="#60a5fa" stroke="none" />
+                                <line x1="7" y1="13" x2="7" y2="17" />
+                                <line x1="5" y1="15" x2="9" y2="15" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-card-title">Roblox</div>
+                            <div class="contact-card-sub">Game development profile</div>
+                        </div>
+                    </div>
+                    <p class="contact-desc">View my Roblox developer profile, portfolio of games, and studio
+                        collaborations. All commissioned work verified on-platform.</p>
+                    <a href="https://www.roblox.com/users/1468004656/profile" target="_blank" rel="noopener"
+                        class="btn-secondary"
+                        style="width:100%;justify-content:center;font-size:.875rem;background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(37,99,235,.06));border-color:rgba(96,165,250,.3);color:#60a5fa;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#60a5fa"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <rect x="2" y="10" width="20" height="12" rx="4" />
+                            <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
+                            <circle cx="15.5" cy="15.5" r="1" fill="#60a5fa" stroke="none" />
+                            <circle cx="17.5" cy="13.5" r="1" fill="#60a5fa" stroke="none" />
+                            <line x1="7" y1="13" x2="7" y2="17" />
+                            <line x1="5" y1="15" x2="9" y2="15" />
+                        </svg>
+                        View Roblox Profile
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#60a5fa"
+                            stroke-width="2" width="14" height="14">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ─── Footer ─── -->
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2025 BEDUL. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
+                    </svg>
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- ─── Contact ─── -->
-<section id="contact">
-    <div class="reveal">
-        <h2 class="contact-heading">
-            Let's work<br>
-            <span class="accent-gradient-text">together.</span>
-        </h2>
-        <p style="font-size:.9375rem;color:var(--color-text-secondary);max-width:30rem;">
-            Have a project or want to collaborate? Get in touch with me through any of the platforms below.
-        </p>
-    </div>
-
-    <div class="contact-cards">
-
-        <!-- Discord -->
-        <div class="contact-card reveal">
-            <div class="contact-card-header">
-                <div class="contact-icon-wrap" style="background:rgba(88,101,242,.15);box-shadow:0 0 16px rgba(88,101,242,.15)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#5865F2" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z"/></svg>
-                </div>
-                <div>
-                    <div class="contact-card-title">Discord</div>
-                    <div class="contact-card-sub">Quick chat & collaboration</div>
-                </div>
-                <div class="status-online">
-                    <span class="pulse-dot" style="width:8px;height:8px;flex-shrink:0;position:relative;display:inline-block"></span>
-                    Online
-                </div>
-            </div>
-            <a href="https://discord.com/users/323107249264525324" target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;font-size:.875rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#5865F2" viewBox="0 0 24 24" width="16" height="16"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z"/></svg>
-                Open Discord
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-        </div>
-
-        <!-- GitHub -->
-        <div class="contact-card reveal">
-            <div class="contact-card-header">
-                <div class="contact-icon-wrap" style="background:rgba(139,92,246,.12);box-shadow:0 0 16px rgba(139,92,246,.12)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#a78bfa" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
-                </div>
-                <div>
-                    <div class="contact-card-title">GitHub</div>
-                    <div class="contact-card-sub">Open source projects</div>
-                </div>
-            </div>
-            <p class="contact-desc">Check out my repositories, contributions, and open source projects. Feel free to star or fork.</p>
-            <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary" style="width:100%;justify-content:center;font-size:.875rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.27-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
-                View GitHub
-            </a>
-        </div>
-
-    </div>
-</section>
-</main>
-
-<!-- ─── Footer ─── -->
-<footer>
-    <div class="footer-inner">
-        <p>&copy; 2025 BEDUL. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" aria-label="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z"/></svg>
-            </a>
-        </div>
-    </div>
-</footer>
-
-<script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
