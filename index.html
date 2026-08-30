@@ -21,6 +21,82 @@
 
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Page-specific additions: service filter bar + refined offer cards -->
+    <style>
+        /* Filter bar for Projects */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            justify-content: center;
+            margin: 0 0 2.5rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.1rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(129,140,248,.25);
+            background: rgba(129,140,248,.06);
+            color: var(--color-text-secondary);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover {
+            background: rgba(129,140,248,.14);
+            color: var(--color-text);
+        }
+        .filter-btn.active {
+            background: #818cf8;
+            border-color: #818cf8;
+            color: #fff;
+        }
+
+        /* Offer cards: compact, scannable, evidence-linked */
+        .offer-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .offer-card__bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.25rem;
+            flex-grow: 1;
+        }
+        .offer-card__bullets li {
+            display: flex;
+            gap: 0.65rem;
+            align-items: flex-start;
+            margin-bottom: 0.65rem;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        .offer-card__bullets li:before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #818cf8;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+        .offer-card__proof {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #818cf8;
+            text-decoration: none;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(129,140,248,.12);
+            cursor: pointer;
+        }
+        .offer-card__proof:hover { color: #a78bfa; }
+        .offer-card__proof svg { width: 13px; height: 13px; }
+    </style>
 </head>
 
 <body>
@@ -149,8 +225,8 @@
         <section id="about">
             <div class="section-header reveal">
                 <h2 class="section-title">About</h2>
-                <p class="section-subtitle">Professional developer with expertise in building scalable systems, game
-                    development, and modern web applications.</p>
+                <p class="section-subtitle">Roblox game developer & QA engineer specializing in gameplay stability,
+                    backend security, and live-service systems.</p>
             </div>
 
             <div class="about-card reveal">
@@ -195,11 +271,26 @@
                         <div class="stat-number" data-target="4" data-suffix="">0</div>
                         <div class="stat-label">Major Projects</div>
                     </div>
+
+                    <!-- Stat 4 -->
+                    <div class="stat-card">
+                        <div class="stat-icon"
+                            style="background:rgba(16,185,129,.12);box-shadow:0 0 16px rgba(16,185,129,.2)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#34d399"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 18h18M7 14l3-3 3 2 5-7 3 2v6H7z" />
+                            </svg>
+                        </div>
+                        <div class="stat-number" data-target="4897" data-suffix="M+">0</div>
+                        <div class="stat-label">Total Visits</div>
+                    </div>
                 </div>
 
                 <p style="font-size:.9375rem;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1rem;">
-                    FullStack Developer with 5+ years of experience in game development, web systems, and scalable
-                    architecture. Specializing in complex system design using modern technologies and best practices.
+                    Worked on live Roblox titles under real production pressure — including a game that reached
+                    <strong>5,743</strong> peak CCU and <strong>489.7M+</strong> visits. My focus: gameplay
+                    stability, transaction validation, and backend auditing.
                 </p>
 
                 <div class="availability-row">
@@ -234,10 +325,19 @@
                     career.</p>
             </div>
 
+            <!-- Category filter -->
+            <div class="filter-bar reveal" role="group" aria-label="Filter projects by service category">
+                <button type="button" class="filter-btn active" data-filter="all">All</button>
+                <button type="button" class="filter-btn" data-filter="bugfix">Bug Fixing & QA</button>
+                <button type="button" class="filter-btn" data-filter="rework">Full Game Rework</button>
+                <button type="button" class="filter-btn" data-filter="backend">Backend & Security</button>
+                <button type="button" class="filter-btn" data-filter="performance">Performance & Optimization</button>
+            </div>
+
             <div class="projects-grid">
 
                 <!-- Stone World -->
-                <div class="project-card featured reveal">
+                <div class="project-card featured reveal" data-categories="rework,backend">
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/stone-world/Stone_world.png" alt="Stone World"
@@ -245,7 +345,7 @@
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Stone World</span>
-                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-featured">Major Project</span>
                                 <span class="badge badge-active">
                                     <span class="pulse-dot"
                                         style="width:6px;height:6px;position:relative;display:inline-block"></span>
@@ -270,8 +370,40 @@
                     </div>
                 </div>
 
+                <!-- The Chi -->
+                <div class="project-card featured reveal" data-categories="rework,bugfix">
+                    <div class="featured-bar"></div>
+                    <div class="project-card-header">
+                        <img src="assets/images/the-chi/loogo.png" alt="The Chi"
+                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                        <div class="project-meta">
+                            <div class="project-title-row">
+                                <span class="project-title">The Chi</span>
+                                <span class="badge badge-featured">Major Project</span>
+                                <span class="badge badge-active">
+                                    <span class="pulse-dot"
+                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    Reworked
+                                </span>
+                            </div>
+                            <div class="project-role">Gameplay Systems & Rework</div>
+                        </div>
+                    </div>
+                    <p class="project-desc">A major vehicle-based game rework focused on gameplay reliability, visual identity, and system stability. I rebuilt the project direction while fixing critical bugs in damage flow, wheeled movement, collisions, and progression logic.</p>
+                    <div class="project-links">
+                        <a href="the-chi.html" class="project-link-btn project-link-highlight">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Anime Majesty -->
-                <div class="project-card featured reveal">
+                <div class="project-card featured reveal" data-categories="performance,backend">
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/anime-majesty/Anime_Majesty.png" alt="Anime Majesty"
@@ -279,7 +411,7 @@
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Anime Majesty</span>
-                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-featured">Major Project</span>
                                 <span class="badge badge-active">
                                     <span class="pulse-dot"
                                         style="width:6px;height:6px;position:relative;display:inline-block"></span>
@@ -305,7 +437,7 @@
                 </div>
 
                 <!-- PlayVerse -->
-                <div class="project-card featured reveal">
+                <div class="project-card featured reveal" data-categories="bugfix,backend">
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/PlayVerse/logo.webp" alt="PlayVerse"
@@ -313,7 +445,7 @@
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">PlayVerse</span>
-                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-featured">Major Project</span>
                                 <span class="badge badge-active">
                                     <span class="pulse-dot"
                                         style="width:6px;height:6px;position:relative;display:inline-block"></span>
@@ -323,9 +455,7 @@
                             <div class="project-role">Game Developer & QA Engineer</div>
                         </div>
                     </div>
-                    <p class="project-desc">Game development and QA engineering for a major Roblox studio. Focused on
-                        bug fixing, transaction validation, and backend service auditing for titles like +1 Sword
-                        Fighting Escape.</p>
+                    <p class="project-desc">Contributed to a major Roblox live title with <strong>5,743</strong> total CCU and <strong>489.7M+</strong> total visits. Focused on bug fixing, transaction validation, and backend service auditing for titles like +1 Sword Fighting Escape.</p>
                     <div class="project-links">
                         <a href="playverse.html" class="project-link-btn project-link-highlight">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -351,7 +481,7 @@
             <div class="projects-grid">
 
                 <!-- Liberty Height -->
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-categories="rework">
                     <div class="project-card-header">
                         <img src="assets/images/liberty-height/Liberty_Height.png" alt="Liberty Height"
                             style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
@@ -377,7 +507,8 @@
                 </div>
 
                 <!-- Another Commission -->
-                <div class="project-card reveal">
+                <div class="project-card highlighted reveal">
+                    <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <div
                             style="width:5rem;height:5rem;border-radius:1rem;background:linear-gradient(135deg, #818cf8, #a78bfa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.5rem;">
@@ -386,6 +517,7 @@
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Another Commission</span>
+                                <span class="badge badge-featured">Featured</span>
                             </div>
                             <div class="project-role">Community Reviews & Feedback</div>
                         </div>
@@ -393,7 +525,7 @@
                     <p class="project-desc">A showcase of project reviews from community members and admin feedback from
                         Ro-devs. Featuring testimonials and insights from 8+ community reviews plus admin approval.</p>
                     <div class="project-links">
-                        <a href="another-commission.html" class="project-link-btn">
+                        <a href="another-commission.html" class="project-link-btn project-link-highlight">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2" width="14" height="14">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -518,127 +650,98 @@
             </div>
         </section>
 
-        <!-- ─── What I Offers ─── -->
+        <!-- ─── What I Offer ─── -->
         <section id="offers" style="padding: 5rem 2rem; background: var(--color-bg);">
             <div style="max-width: 1000px; margin: 0 auto;">
                 <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
                     <h2 class="section-title">What I Offer</h2>
                     <p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
-                        Based on years of experience working on complex projects, here's what I bring to the table.
+                        Four service areas, each backed by a shipped project. Click "See it in action" for proof.
                     </p>
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <!-- Optimization & Structured Frameworks -->
-                    <div class="skill-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Optimization &
-                                Structured Frameworks</span>
+
+                    <!-- Bug Fixing & Gameplay QA -->
+                    <div class="skill-card offer-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Bug Fixing &
+                                Gameplay QA</span>
                         </div>
-                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                            From working on Anime Majesty, I learned that optimization isn't a feature—it's a core
-                            requirement. I provide:
-                        </p>
-                        <div style="list-style: none; padding: 0; margin: 0;">
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Advanced packet optimization & network efficiency</span>
-                            </div>
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Custom architecture design for scalable systems</span>
-                            </div>
-                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Structured frameworks that grow with your project</span>
-                            </div>
-                        </div>
+                        <ul class="offer-card__bullets">
+                            <li>Diagnose logic bugs, exploits, and broken game states</li>
+                            <li>Validate item states, transactions, and server-side multipliers</li>
+                            <li>Reproduce and fix issues found in active player-facing environments</li>
+                        </ul>
+                        <a href="#" class="offer-card__proof" data-goto-filter="bugfix">
+                            See it in action — PlayVerse & The Chi
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
 
-                    <!-- Experience & Reliability -->
-                    <div class="skill-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Experience &
-                                Reliability</span>
+                    <!-- Full Game Rework -->
+                    <div class="skill-card offer-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Full Game
+                                Rework</span>
                         </div>
-                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                            I've worked on several large-scale projects that taught me exactly what works and what
-                            doesn't:
-                        </p>
-                        <div style="list-style: none; padding: 0; margin: 0;">
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>5+ years of professional development experience</span>
-                            </div>
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Proven track record with complex systems</span>
-                            </div>
-                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>I know what I'm doing—and I deliver results</span>
-                            </div>
-                        </div>
+                        <ul class="offer-card__bullets">
+                            <li>Rebuild visual identity, map layout, and task/progression flow</li>
+                            <li>Stabilize damage, physics, and gameplay state transitions end-to-end</li>
+                            <li>Turn a rough concept into a project ready for long-term development</li>
+                        </ul>
+                        <a href="#" class="offer-card__proof" data-goto-filter="rework">
+                            See it in action — The Chi & Stone World
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
 
-                    <!-- Affordable Expertise -->
-                    <div class="skill-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Affordable
-                                Expertise</span>
+                    <!-- Backend & Security Architecture -->
+                    <div class="skill-card offer-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Backend &
+                                Security Architecture</span>
                         </div>
-                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                            You get professional-grade development without the enterprise price tag:
-                        </p>
-                        <div style="list-style: none; padding: 0; margin: 0;">
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Competitive rates that make sense</span>
-                            </div>
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Enterprise-level skills and work quality</span>
-                            </div>
-                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Value that exceeds the investment</span>
-                            </div>
-                        </div>
+                        <ul class="offer-card__bullets">
+                            <li>Modular systems with Knit, ProfileStore, ReplicaService, Datastore2</li>
+                            <li>Remote event verification to block client-side spoofing and spam</li>
+                            <li>Server-side validation designed with exploit prevention in mind</li>
+                        </ul>
+                        <a href="#" class="offer-card__proof" data-goto-filter="backend">
+                            See it in action — Anime Majesty & PlayVerse
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
 
-                    <!-- Security & Protection -->
-                    <div class="skill-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.5rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Security &
-                                Protection</span>
+                    <!-- Performance & Network Optimization -->
+                    <div class="skill-card offer-card reveal">
+                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
+                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Performance &
+                                Network Optimization</span>
                         </div>
-                        <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                            I've studied security extensively—both how to exploit vulnerabilities and how to prevent
-                            them:
-                        </p>
-                        <div style="list-style: none; padding: 0; margin: 0;">
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Understanding of exploit techniques & mitigation</span>
-                            </div>
-                            <div
-                                style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>Server-side validation & data protection</span>
-                            </div>
-                            <div style="display: flex; gap: 0.75rem; color: var(--color-text-secondary);">
-                                <span style="color: #818cf8; font-weight: 600; flex-shrink: 0;">•</span>
-                                <span>System design with security as priority</span>
-                            </div>
-                        </div>
+                        <ul class="offer-card__bullets">
+                            <li>Packet size optimization — down to 247 bytes per attack packet</li>
+                            <li>Zero memory-leak systems verified across 50+ concurrent players</li>
+                            <li>System design built to scale with live player load</li>
+                        </ul>
+                        <a href="#" class="offer-card__proof" data-goto-filter="performance">
+                            See it in action — Anime Majesty
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -782,6 +885,44 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+
+    <!-- Page-specific: project category filter + offer-card proof links -->
+    <script>
+        (function () {
+            var filterButtons = document.querySelectorAll('.filter-btn');
+            var proofLinks = document.querySelectorAll('[data-goto-filter]');
+            var cards = document.querySelectorAll('.project-card[data-categories]');
+
+            function applyFilter(cat) {
+                cards.forEach(function (card) {
+                    var cats = card.getAttribute('data-categories').split(',');
+                    var match = cat === 'all' || cats.indexOf(cat) !== -1;
+                    card.style.display = match ? '' : 'none';
+                });
+                filterButtons.forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-filter') === cat);
+                });
+            }
+
+            filterButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    applyFilter(btn.getAttribute('data-filter'));
+                });
+            });
+
+            proofLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var cat = link.getAttribute('data-goto-filter');
+                    applyFilter(cat);
+                    var projectsSection = document.getElementById('projects');
+                    if (projectsSection) {
+                        projectsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>

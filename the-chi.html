@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chi - Major Rework & Gameplay Stabilization</title>
+    <meta name="description" content="The Chi - A major game rework focused on visual identity, movement, damage flow, and gameplay stability.">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <style>
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; }
+        h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; }
+        h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+        h4 { font-size: 1.2rem; font-weight: 600; line-height: 1.5; }
+        body { line-height: 1.6; }
+        p { max-width: 65ch; }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+        .container-sm { max-width: 900px; margin: 0 auto; }
+        section { padding-left: 2rem; padding-right: 2rem; }
+
+        :root {
+            --accent: #818cf8;
+            --accent-soft: #22d3ee;
+        }
+
+        .hero {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        .hero__badge { display: inline-block; margin-bottom: 1.5rem; }
+        .hero__title { margin-bottom: 1rem; }
+        .hero__subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero__badges-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            transition: all 0.3s ease;
+        }
+        .image-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,.2);
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
+        }
+        .image-container figcaption {
+            padding: 0.85rem 1rem;
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            background: var(--color-bg-secondary);
+        }
+
+        .content-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .section__title { margin-bottom: 1rem; color: var(--color-text); }
+        .section__eyebrow {
+            display: inline-block;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .section__subtitle {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            max-width: 65ch;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--color-bg-secondary);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,.1);
+        }
+        .card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        .card__text {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+            margin: 0;
+        }
+        .card__list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+        .card__list li {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .card__list li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(129,140,248,.1);
+            margin: 3rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn svg { width: 18px; height: 18px; }
+
+        .stat-box {
+            background: linear-gradient(135deg, rgba(129,140,248,.1) 0%, rgba(34,211,238,.1) 100%);
+            border: 1px solid rgba(129,140,248,.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .stat-box__value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .stat-box__label {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Evidence / proof strip */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* Closing highlight section (Long-Term Opportunity) */
+        .highlight-section {
+            background: linear-gradient(180deg, rgba(129,140,248,.06) 0%, rgba(129,140,248,0) 100%);
+            border-radius: 1.5rem;
+            padding: 3.5rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .evidence-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+            .stat-box__value { font-size: 1.875rem; }
+            .highlight-section { padding: 2.5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">BEDUL</a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <button id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero container">
+        <div class="hero__badge">
+            <span class="badge badge-featured">Major Project</span>
+        </div>
+        <h1 class="hero__title">The Chi</h1>
+        <p class="hero__subtitle">
+            A full gameplay rework for The Chi — rebuilding its visual identity, map and task flow, and core vehicle/combat systems into a stable, production-ready experience.
+        </p>
+        <div class="hero__badges-row">
+            <span class="badge badge-active">Gameplay Rework</span>
+            <span class="badge">Vehicle Systems</span>
+            <span class="badge">Combat & Physics</span>
+            <span class="badge">Map Flow</span>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+
+            <!-- 1. OVERVIEW -->
+            <div class="grid-2" aria-labelledby="overview-title">
+                <div>
+                    <span class="section__eyebrow">Overview</span>
+                    <h2 id="overview-title" class="section__title">Where The Chi Started</h2>
+                    <p class="section__subtitle">
+                        The Chi came in as a rough concept: a driving/combat game with real potential, but no consistent visual identity and a gameplay loop that hadn't been stress-tested yet. The brief was to turn that potential into something coherent enough to support long-term development.
+                    </p>
+                    <p class="section__subtitle">
+                        That meant treating the project as more than a one-off task — the work needed to hold up under real play, not just look good in a screenshot.
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="assets/images/the-chi/loogo.png" alt="The Chi logo and brand identity overview" loading="lazy">
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 2. THE CHALLENGE -->
+            <div class="grid-2" aria-labelledby="challenge-title">
+                <div class="image-container">
+                    <img src="assets/images/the-chi/task-map.png" alt="The Chi map and task flow planning" loading="lazy">
+                </div>
+                <div>
+                    <span class="section__eyebrow">The Challenge</span>
+                    <h2 id="challenge-title" class="section__title">Turning Potential Into a Stable Build</h2>
+                    <p class="section__subtitle">
+                        Underneath the surface, the game had a set of interlocking problems: inconsistent visuals, a map/task layout that didn't guide players clearly, and gameplay bugs — damage, wheels, collisions, and broken state transitions — that surfaced as soon as the game was played seriously rather than just tested casually.
+                    </p>
+                    <p class="section__subtitle">
+                        None of these were isolated fixes. Visual identity, map structure, and gameplay logic all had to move together for the rework to actually hold.
+                    </p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 3. WHAT WAS REWORKED (consolidated, no duplication) -->
+            <div class="container-sm" aria-labelledby="rework-title">
+                <span class="section__eyebrow" style="display:block; text-align:center;">The Work</span>
+                <h2 id="rework-title" class="section__title" style="text-align:center; margin-bottom: 0.75rem;">What I Reworked</h2>
+                <p class="section__subtitle" style="text-align:center; margin-left:auto; margin-right:auto;">
+                    Three fronts, tackled in parallel rather than in isolation.
+                </p>
+                <div class="grid-3" style="margin-top: 2rem;">
+                    <div class="card">
+                        <h3 class="card__title">Visual Identity</h3>
+                        <p class="card__text">
+                            Refreshed the game's appearance to match a clearer, more deliberate identity — giving the project a look consistent enough to build further content on top of.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card__title">Map & Task Flow</h3>
+                        <p class="card__text">
+                            Restructured the map layout and task progression so players could read where to go and what to do next, instead of the flow feeling arbitrary.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card__title">Vehicle & Combat Stability</h3>
+                        <p class="card__text">
+                            Resolved the core reliability issues — damage flow, wheel physics, collisions, animation glitches, and broken state transitions — so the gameplay loop held up under real play.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 4. EVIDENCE -->
+            <div class="container-sm" aria-labelledby="evidence-title">
+                <span class="section__eyebrow" style="display:block; text-align:center;">In Practice</span>
+                <h2 id="evidence-title" class="section__title" style="text-align:center; margin-bottom: 2rem;">From Task to Fix</h2>
+                <div class="evidence-grid">
+                    <figure class="image-container" style="margin:0;">
+                        <img src="assets/images/the-chi/task-appereance.png" alt="Visual and appearance rework task" loading="lazy">
+                        <figcaption>Visual identity task in progress</figcaption>
+                    </figure>
+                    <figure class="image-container" style="margin:0;">
+                        <img src="assets/images/the-chi/task1.png" alt="Critical gameplay issue being tracked" loading="lazy">
+                        <figcaption>A critical gameplay issue flagged</figcaption>
+                    </figure>
+                    <figure class="image-container" style="margin:0;">
+                        <img src="assets/images/the-chi/task1-solve.png" alt="Gameplay issue resolved and verified" loading="lazy">
+                        <figcaption>...and resolved</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 5. RESULT -->
+            <div class="grid-2" aria-labelledby="result-title">
+                <div>
+                    <span class="section__eyebrow">Production Result</span>
+                    <h2 id="result-title" class="section__title">A Project That Could Hold Its Own</h2>
+                    <p class="section__subtitle">
+                        The Chi went from a promising but unstable concept to a project with a defined identity, a readable map and task flow, and a gameplay loop that survives real play instead of just a demo run. The priority throughout was maintainability and gameplay logic, not just cosmetic polish.
+                    </p>
+                </div>
+                <div class="grid-3" style="gap:1rem;">
+                    <div class="stat-box">
+                        <div class="stat-box__value">Rework</div>
+                        <div class="stat-box__label">Major gameplay overhaul</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box__value">Fix</div>
+                        <div class="stat-box__label">Critical bug resolution</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box__value">Flow</div>
+                        <div class="stat-box__label">Clearer progression structure</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- 6. CLOSING PAYOFF: LONG-TERM OPPORTUNITY -->
+            <div class="highlight-section grid-2" aria-labelledby="longterm-title">
+                <div>
+                    <span class="section__eyebrow">The Outcome</span>
+                    <h2 id="longterm-title" class="section__title">Earning a Long-Term Role</h2>
+                    <p class="section__subtitle">
+                        The Chi started as a commission. It didn't stay one. The consistency of the rework — the fixes that actually stuck, the identity work that held together — turned into an invitation to take on a longer-term role in shaping the game's direction.
+                    </p>
+                    <p class="section__subtitle" style="margin-bottom:0;">
+                        That shift is the real marker of this project: the work stopped being "finish the request" and became "help decide what this project becomes next."
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="assets/images/the-chi/longterm.png" alt="Discussion confirming a long-term role on The Chi" loading="lazy">
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:3rem;">
+                <a href="index.html" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

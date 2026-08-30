@@ -516,6 +516,16 @@ section {
     grid-column: 1 / -1;
 }
 
+.project-card.highlighted {
+    border-color: rgba(129, 140, 248, 0.6);
+    box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.2), var(--shadow-md);
+}
+
+.project-card.highlighted:hover {
+    border-color: rgba(129, 140, 248, 0.9);
+    box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.35), var(--shadow-lg);
+}
+
 .featured-bar {
     position: absolute;
     top: 0; left: 0; right: 0;
