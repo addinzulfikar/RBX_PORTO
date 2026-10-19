@@ -1,136 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEDUL - FullStack Developer & Game Developer</title>
+    <title>BEDUL · FullStack Game Architect & Systems Engineer</title>
     <meta name="description"
-        content="FullStack Developer with 5+ years experience. Specializing in game development, web development, and system design. 70+ commissions completed.">
-    <meta name="theme-color" content="#fafafa">
+        content="FullStack Developer with 5+ years experience. Specializing in game development, web systems, and high-concurrency architecture. 101+ commissions completed, 489.7M+ visits.">
+    <meta name="theme-color" content="#0b0b0c">
 
-    <!-- Fonts -->
+    <script>
+        /* Runs synchronously before first paint to prevent palette flash */
+        (function () {
+            var root = document.documentElement;
+            var stored = null;
+            try {
+                stored = localStorage.getItem('theme');
+            } catch (e) {}
+            if (stored === 'light') {
+                root.classList.remove('dark');
+                root.setAttribute('data-theme', 'light');
+            } else {
+                root.classList.add('dark');
+                root.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <!-- Fonts: Newsreader (Editorial Serif) + JetBrains Mono + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Icons (Font Awesome) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS (Genjutsu Design System) -->
     <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- Page-specific additions: service filter bar + refined offer cards -->
-    <style>
-        /* Filter bar for Projects */
-        .filter-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem;
-            justify-content: center;
-            margin: 0 0 2.5rem;
-        }
-        .filter-btn {
-            padding: 0.5rem 1.1rem;
-            border-radius: 2rem;
-            border: 1px solid rgba(129,140,248,.25);
-            background: rgba(129,140,248,.06);
-            color: var(--color-text-secondary);
-            font-size: 0.8125rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .filter-btn:hover {
-            background: rgba(129,140,248,.14);
-            color: var(--color-text);
-        }
-        .filter-btn.active {
-            background: #818cf8;
-            border-color: #818cf8;
-            color: #fff;
-        }
-
-        /* Offer cards: compact, scannable, evidence-linked */
-        .offer-card {
-            display: flex;
-            flex-direction: column;
-        }
-        .offer-card__bullets {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.25rem;
-            flex-grow: 1;
-        }
-        .offer-card__bullets li {
-            display: flex;
-            gap: 0.65rem;
-            align-items: flex-start;
-            margin-bottom: 0.65rem;
-            color: var(--color-text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.55;
-        }
-        .offer-card__bullets li:before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #818cf8;
-            flex-shrink: 0;
-            margin-top: 0.5rem;
-        }
-        .offer-card__proof {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: #818cf8;
-            text-decoration: none;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(129,140,248,.12);
-            cursor: pointer;
-        }
-        .offer-card__proof:hover { color: #a78bfa; }
-        .offer-card__proof svg { width: 13px; height: 13px; }
-    </style>
 </head>
 
 <body>
 
-    <!-- ─── Ambient Background ─── -->
+    <!-- ─── Interactive Ink Thread Canvas ─── -->
+    <canvas id="ink-canvas" class="ink-canvas" aria-hidden="true"></canvas>
+
+    <!-- ─── Ambient Japanese Washi & Ink Ground ─── -->
     <div class="ambient-bg" aria-hidden="true">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
     </div>
 
-    <!-- ─── Navbar ─── -->
+    <!-- ─── Navbar (Rail) ─── -->
     <nav id="navbar">
         <div class="nav-inner">
-            <a href="#hero" class="nav-brand">BEDUL</a>
+            <a href="#hero" class="nav-brand">
+                <span class="brand-hanko" aria-hidden="true">別</span>
+                <span>BEDUL</span>
+                <span class="brand-sub">· 術</span>
+            </a>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="#about" onclick="smoothScroll(event,'#about')">About</a></li>
-                <li><a href="#projects" onclick="smoothScroll(event,'#projects')">Projects</a></li>
-                <li><a href="#skills" onclick="smoothScroll(event,'#skills')">Skills</a></li>
-                <li><a href="#contact" onclick="smoothScroll(event,'#contact')">Contact</a></li>
+                <li><a href="#about" onclick="smoothScroll(event,'#about')">about</a></li>
+                <li><a href="#projects" onclick="smoothScroll(event,'#projects')">works</a></li>
+                <li><a href="#skills" onclick="smoothScroll(event,'#skills')">arsenal</a></li>
+                <li><a href="#offers" onclick="smoothScroll(event,'#offers')">offerings</a></li>
+                <li><a href="#contact" onclick="smoothScroll(event,'#contact')">contact</a></li>
             </ul>
 
-            <div style="display:flex;align-items:center;gap:.5rem;">
+            <div style="display:flex;align-items:center;gap:.65rem;">
                 <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
                     <!-- Moon icon (shown in light mode) -->
                     <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="display:none">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
                     <!-- Sun icon (shown in dark mode) -->
                     <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        style="display:none">
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5" />
                         <line x1="12" y1="1" x2="12" y2="3" />
                         <line x1="12" y1="21" x2="12" y2="23" />
@@ -143,7 +93,7 @@
                     </svg>
                 </button>
                 <button id="mobile-menu-btn" aria-label="Toggle menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <line x1="3" y1="6" x2="21" y2="6" />
                         <line x1="3" y1="12" x2="21" y2="12" />
@@ -154,69 +104,108 @@
         </div>
     </nav>
 
-    <!-- Mobile Nav -->
+    <!-- Mobile Nav Drawer -->
     <div id="mobile-nav">
-        <a href="#about" onclick="mobileSmoothScroll(event,'#about')">About</a>
-        <a href="#projects" onclick="mobileSmoothScroll(event,'#projects')">Projects</a>
-        <a href="#skills" onclick="mobileSmoothScroll(event,'#skills')">Skills</a>
-        <a href="#contact" onclick="mobileSmoothScroll(event,'#contact')">Contact</a>
+        <a href="#about" onclick="mobileSmoothScroll(event,'#about')">about</a>
+        <a href="#projects" onclick="mobileSmoothScroll(event,'#projects')">works</a>
+        <a href="#skills" onclick="mobileSmoothScroll(event,'#skills')">arsenal</a>
+        <a href="#offers" onclick="mobileSmoothScroll(event,'#offers')">offerings</a>
+        <a href="#contact" onclick="mobileSmoothScroll(event,'#contact')">contact</a>
     </div>
 
     <main>
         <!-- ─── Hero ─── -->
         <section id="hero">
             <div class="hero-inner">
+                <div class="hero-grid">
+                    <div>
+                        <div class="eyebrow">
+                            <span class="k" aria-hidden="true">幻術</span>
+                            <span class="t">BEDUL · GAME ARCHITECT &amp; SCRIPTER</span>
+                        </div>
 
+                        <h1 class="hero-title" aria-label="FullStack Developer">
+                            Systems forged in code.<br>
+                            Built for extreme scale.
+                        </h1>
 
-                <h1 class="hero-title" aria-label="FullStack Developer">
-                    <span class="char" style="animation-delay:.15s">F</span><span class="char"
-                        style="animation-delay:.21s">U</span><span class="char"
-                        style="animation-delay:.27s">L</span><span class="char"
-                        style="animation-delay:.33s">L</span><span class="char"
-                        style="animation-delay:.39s">S</span><span class="char"
-                        style="animation-delay:.45s">T</span><span class="char"
-                        style="animation-delay:.51s">A</span><span class="char"
-                        style="animation-delay:.57s">C</span><span class="char" style="animation-delay:.63s">K</span>
-                </h1>
+                        <div class="hero-divider"></div>
 
-                <div class="hero-divider"></div>
+                        <p class="hero-subtitle">
+                            FullStack Developer with 5+ years of live-service experience.<br>
+                            <span class="accent-text">Specializing in high-concurrency architecture, exploit mitigation, and zero-leak multiplayer systems.</span>
+                        </p>
 
-                <p class="hero-subtitle">
-                    FullStack Developer with 5+ years of professional experience<br>
-                    <span class="accent-text">Specializing in Game Development, Web Systems & Scalable
-                        Architecture</span>
-                </p>
+                        <div class="hero-actions">
+                            <a href="#contact" onclick="smoothScroll(event,'#contact')" class="btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                                Inquire Commission
+                            </a>
+                            <a href="https://www.roblox.com/users/1468004656/profile" target="_blank" rel="noopener"
+                                class="btn-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="10" width="20" height="12" rx="4" />
+                                    <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
+                                    <circle cx="15.5" cy="15.5" r="1" fill="currentColor" stroke="none" />
+                                    <circle cx="17.5" cy="13.5" r="1" fill="currentColor" stroke="none" />
+                                    <line x1="7" y1="13" x2="7" y2="17" />
+                                    <line x1="5" y1="15" x2="9" y2="15" />
+                                </svg>
+                                Roblox Profile
+                            </a>
+                            <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
 
-                <div class="hero-actions">
-                    <a href="#contact" onclick="smoothScroll(event,'#contact')" class="btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                        Get in Touch
-                    </a>
-                    <a href="https://www.roblox.com/users/1468004656/profile" target="_blank" rel="noopener"
-                        class="btn-secondary"
-                        style="background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(37,99,235,.06)); border-color: rgba(96,165,250,.3); color: #60a5fa;">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" viewBox="0 0 24 24" fill="none"
-                            stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="10" width="20" height="12" rx="4" />
-                            <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
-                            <circle cx="15.5" cy="15.5" r="1" fill="#60a5fa" stroke="none" />
-                            <circle cx="17.5" cy="13.5" r="1" fill="#60a5fa" stroke="none" />
-                            <line x1="7" y1="13" x2="7" y2="17" />
-                            <line x1="5" y1="15" x2="9" y2="15" />
-                        </svg>
-                        Roblox Profile
-                    </a>
-                    <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="btn-icon" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
-                        </svg>
-                        GitHub
-                    </a>
+                        <p class="cue">scroll to inspect</p>
+                    </div>
+
+                    <!-- Right Column: Genjutsu Production Terminal Card -->
+                    <div>
+                        <div class="hero-term-card">
+                            <div class="term-header">
+                                <div class="term-dots">
+                                    <span class="term-dot"></span>
+                                    <span class="term-dot"></span>
+                                    <span class="term-dot"></span>
+                                </div>
+                                <span>production // status: ready</span>
+                            </div>
+                            <div class="term-line">
+                                <span class="prompt">$</span>
+                                <span>bedul --audit "Live Game Production"</span>
+                            </div>
+                            <div class="term-line" style="color:var(--ink-soft);font-size:var(--mono-xs);margin-top:0.4rem;">
+                                <span>&gt; Attack packet: 247 bytes (ByteNet compressed)</span>
+                            </div>
+                            <div class="term-line" style="color:var(--ink-soft);font-size:var(--mono-xs);">
+                                <span>&gt; Memory leak audit: 0 leaks across 50+ concurrent users</span>
+                            </div>
+                            <div class="term-line" style="color:var(--ink-soft);font-size:var(--mono-xs);">
+                                <span>&gt; Peak recorded traffic: 5,743 CCU · 489.7M+ visits</span>
+                            </div>
+                            <div class="term-line" style="color:var(--crimson);font-size:var(--mono-xs);">
+                                <span>&gt; Exploit defense: Server-authoritative state verification</span>
+                            </div>
+
+                            <ul class="hero-facts">
+                                <li>5+ Yrs Exp</li>
+                                <li>101+ Commissions</li>
+                                <li>489.7M+ Visits</li>
+                                <li>Roblox / Web</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -224,8 +213,12 @@
         <!-- ─── About ─── -->
         <section id="about">
             <div class="section-header reveal">
-                <h2 class="section-title">About</h2>
-                <p class="section-subtitle">Roblox game developer & QA engineer specializing in gameplay stability,
+                <div class="eyebrow">
+                    <span class="k">01</span>
+                    <span class="t">IDENTITY &amp; LIVE PRODUCTION RECORD</span>
+                </div>
+                <h2 class="section-title">About the Craft</h2>
+                <p class="section-subtitle">Roblox game developer &amp; QA engineer specializing in gameplay stability,
                     backend security, and live-service systems.</p>
             </div>
 
@@ -233,84 +226,71 @@
                 <div class="stats-grid">
                     <!-- Stat 1 -->
                     <div class="stat-card">
-                        <div class="stat-icon"
-                            style="background:rgba(99,102,241,.15);box-shadow:0 0 16px rgba(99,102,241,.2)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#818cf8"
-                                stroke-width="2">
-                                <polyline points="16 18 22 12 16 6" />
-                                <polyline points="8 6 2 12 8 18" />
-                            </svg>
+                        <div class="stat-icon">
+                            <span class="k">経</span>
                         </div>
-                        <div class="stat-number" data-target="5" data-suffix="+">0</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div>
+                            <div class="stat-number" data-target="5" data-suffix="+">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
                     </div>
 
                     <!-- Stat 2 -->
                     <div class="stat-card">
-                        <div class="stat-icon"
-                            style="background:rgba(6,182,212,.15);box-shadow:0 0 16px rgba(6,182,212,.2)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22d3ee"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
+                        <div class="stat-icon">
+                            <span class="k">請</span>
                         </div>
-                        <div class="stat-number" data-target="101" data-suffix="+">0</div>
-                        <div class="stat-label">Commissions Completed</div>
+                        <div>
+                            <div class="stat-number" data-target="101" data-suffix="+">0</div>
+                            <div class="stat-label">Commissions Completed</div>
+                        </div>
                     </div>
 
                     <!-- Stat 3 -->
                     <div class="stat-card">
-                        <div class="stat-icon"
-                            style="background:rgba(234,179,8,.12);box-shadow:0 0 16px rgba(234,179,8,.2)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eab308"
-                                stroke-width="2">
-                                <polygon
-                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
+                        <div class="stat-icon">
+                            <span class="k">作</span>
                         </div>
-                        <div class="stat-number" data-target="4" data-suffix="">0</div>
-                        <div class="stat-label">Major Projects</div>
+                        <div>
+                            <div class="stat-number" data-target="4" data-suffix="">0</div>
+                            <div class="stat-label">Major Projects</div>
+                        </div>
                     </div>
 
                     <!-- Stat 4 -->
                     <div class="stat-card">
-                        <div class="stat-icon"
-                            style="background:rgba(16,185,129,.12);box-shadow:0 0 16px rgba(16,185,129,.2)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#34d399"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 18h18M7 14l3-3 3 2 5-7 3 2v6H7z" />
-                            </svg>
+                        <div class="stat-icon">
+                            <span class="k">衆</span>
                         </div>
-                        <div class="stat-number" data-target="4897" data-suffix="M+">0</div>
-                        <div class="stat-label">Total Visits</div>
+                        <div>
+                            <div class="stat-number" data-target="4897" data-suffix="M+">0</div>
+                            <div class="stat-label">Total Visits</div>
+                        </div>
                     </div>
                 </div>
 
-                <p style="font-size:.9375rem;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1rem;">
-                    Worked on live Roblox titles under real production pressure — including a game that reached
-                    <strong>5,743</strong> peak CCU and <strong>489.7M+</strong> visits. My focus: gameplay
-                    stability, transaction validation, and backend auditing.
+                <p style="font-size:1.05rem;color:var(--color-text-secondary);line-height:1.75;margin-bottom:1.5rem;font-family:var(--serif);">
+                    Worked on live Roblox titles under real production pressure — including games that achieved
+                    <strong style="color:rgb(var(--ink));">5,743</strong> peak CCU and <strong style="color:rgb(var(--ink));">489.7M+</strong> cumulative visits. My dedication: bulletproof gameplay stability, cryptographic RemoteEvent auditing, and scalable backend architecture designed never to fold under peak load.
                 </p>
 
                 <div class="availability-row">
                     <span class="avail-label">Availability</span>
                     <div class="avail-item">
-                        <span class="pulse-dot"
-                            style="width:8px;height:8px;flex-shrink:0;position:relative;display:inline-block"></span>
-                        <span style="font-size:.8125rem;color:var(--color-text-secondary)">Collaboration</span>
+                        <span class="pulse-dot"></span>
+                        <span style="font-size:.82rem;color:var(--color-text-secondary)">Collaboration</span>
                         <span class="avail-status" style="color:var(--color-available)">Open</span>
                     </div>
                     <div class="avail-item">
                         <span
-                            style="width:8px;height:8px;border-radius:50%;background:var(--color-limited);display:inline-block;flex-shrink:0"></span>
-                        <span style="font-size:.8125rem;color:var(--color-text-secondary)">Freelance</span>
+                            style="width:7px;height:7px;border-radius:50%;background:var(--color-limited);display:inline-block;flex-shrink:0"></span>
+                        <span style="font-size:.82rem;color:var(--color-text-secondary)">Freelance</span>
                         <span class="avail-status" style="color:var(--color-limited)">Limited</span>
                     </div>
                     <div class="avail-item">
                         <span
-                            style="width:8px;height:8px;border-radius:50%;background:var(--color-available);display:inline-block;flex-shrink:0"></span>
-                        <span style="font-size:.8125rem;color:var(--color-text-secondary)">Full-time</span>
+                            style="width:7px;height:7px;border-radius:50%;background:var(--color-available);display:inline-block;flex-shrink:0"></span>
+                        <span style="font-size:.82rem;color:var(--color-text-secondary)">Full-time</span>
                         <span class="avail-status" style="color:var(--color-available)">Open</span>
                     </div>
                 </div>
@@ -320,18 +300,21 @@
         <!-- ─── Experience / Projects ─── -->
         <section id="projects">
             <div class="section-header reveal">
+                <div class="eyebrow">
+                    <span class="k">02</span>
+                    <span class="t">SELECTED WORKS &amp; SHIPPED TITLES</span>
+                </div>
                 <h2 class="section-title">Major Projects</h2>
-                <p class="section-subtitle">Showcase of significant projects and commissions completed throughout my
-                    career.</p>
+                <p class="section-subtitle">Showcase of significant projects and commissions completed throughout my career.</p>
             </div>
 
-            <!-- Category filter -->
+            <!-- Category filter bar -->
             <div class="filter-bar reveal" role="group" aria-label="Filter projects by service category">
                 <button type="button" class="filter-btn active" data-filter="all">All</button>
-                <button type="button" class="filter-btn" data-filter="bugfix">Bug Fixing & QA</button>
+                <button type="button" class="filter-btn" data-filter="bugfix">Bug Fixing &amp; QA</button>
                 <button type="button" class="filter-btn" data-filter="rework">Full Game Rework</button>
-                <button type="button" class="filter-btn" data-filter="backend">Backend & Security</button>
-                <button type="button" class="filter-btn" data-filter="performance">Performance & Optimization</button>
+                <button type="button" class="filter-btn" data-filter="backend">Backend &amp; Security</button>
+                <button type="button" class="filter-btn" data-filter="performance">Performance &amp; Optimization</button>
             </div>
 
             <div class="projects-grid">
@@ -341,31 +324,28 @@
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/stone-world/Stone_world.png" alt="Stone World"
-                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                            style="width:5rem;height:5rem;border-radius:2px;object-fit:cover;">
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Stone World</span>
-                                <span class="badge badge-featured">Major Project</span>
+                                <span class="badge badge-featured"><span class="k" style="font-size:11px;">改</span> Major Project</span>
                                 <span class="badge badge-active">
-                                    <span class="pulse-dot"
-                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    <span class="pulse-dot"></span>
                                     Active
                                 </span>
                             </div>
-                            <div class="project-role">FullStack Developer</div>
+                            <div class="project-role">Head Developer &amp; Scripter Coordinator</div>
                         </div>
                     </div>
-                    <p class="project-desc">A large-scale RPG game built with a dedicated team across multiple
-                        departments. Developed as Head Developer for Scripters, coordinating complex backend systems,
-                        managing team integration, and ensuring seamless collaboration across all game systems.</p>
+                    <p class="project-desc">A large-scale RPG game built with a dedicated team across multiple departments. Developed as Head Developer for Scripters, coordinating complex backend systems, managing team integration, and ensuring seamless collaboration across all game systems.</p>
                     <div class="project-links">
                         <a href="stone-world.html" class="project-link-btn project-link-highlight">
+                            <span>Inspect Project</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                stroke="currentColor" stroke-width="2" width="13" height="13">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
-                            View Project
                         </a>
                     </div>
                 </div>
@@ -375,29 +355,28 @@
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/the-chi/loogo.png" alt="The Chi"
-                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                            style="width:5rem;height:5rem;border-radius:2px;object-fit:cover;">
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">The Chi</span>
-                                <span class="badge badge-featured">Major Project</span>
+                                <span class="badge badge-featured"><span class="k" style="font-size:11px;">革</span> Major Project</span>
                                 <span class="badge badge-active">
-                                    <span class="pulse-dot"
-                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    <span class="pulse-dot"></span>
                                     Reworked
                                 </span>
                             </div>
-                            <div class="project-role">Gameplay Systems & Rework</div>
+                            <div class="project-role">Gameplay Systems &amp; Rework</div>
                         </div>
                     </div>
                     <p class="project-desc">A major vehicle-based game rework focused on gameplay reliability, visual identity, and system stability. I rebuilt the project direction while fixing critical bugs in damage flow, wheeled movement, collisions, and progression logic.</p>
                     <div class="project-links">
                         <a href="the-chi.html" class="project-link-btn project-link-highlight">
+                            <span>Inspect Project</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                stroke="currentColor" stroke-width="2" width="13" height="13">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
-                            View Project
                         </a>
                     </div>
                 </div>
@@ -407,31 +386,28 @@
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/anime-majesty/Anime_Majesty.png" alt="Anime Majesty"
-                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                            style="width:5rem;height:5rem;border-radius:2px;object-fit:cover;">
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Anime Majesty</span>
-                                <span class="badge badge-featured">Major Project</span>
+                                <span class="badge badge-featured"><span class="k" style="font-size:11px;">極</span> Major Project</span>
                                 <span class="badge badge-active">
-                                    <span class="pulse-dot"
-                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    <span class="pulse-dot"></span>
                                     Active
                                 </span>
                             </div>
-                            <div class="project-role">Game Developer</div>
+                            <div class="project-role">Lead Architect &amp; Game Developer</div>
                         </div>
                     </div>
-                    <p class="project-desc">Turn-based RPG emphasizing extreme optimization and security. Built with
-                        complex backend architecture, achieving 247-byte attack packets and zero memory leaks across 50+
-                        concurrent players. Security-first design with proven exploit mitigation.</p>
+                    <p class="project-desc">Turn-based RPG emphasizing extreme optimization and security. Built with complex backend architecture, achieving 247-byte attack packets and zero memory leaks across 50+ concurrent players. Security-first design with proven exploit mitigation.</p>
                     <div class="project-links">
                         <a href="anime-majesty.html" class="project-link-btn project-link-highlight">
+                            <span>Inspect Project</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                stroke="currentColor" stroke-width="2" width="13" height="13">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
-                            View Project
                         </a>
                     </div>
                 </div>
@@ -441,29 +417,28 @@
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <img src="assets/images/PlayVerse/logo.webp" alt="PlayVerse"
-                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                            style="width:5rem;height:5rem;border-radius:2px;object-fit:cover;">
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">PlayVerse</span>
-                                <span class="badge badge-featured">Major Project</span>
+                                <span class="badge badge-featured"><span class="k" style="font-size:11px;">衆</span> 489.7M+ Visits</span>
                                 <span class="badge badge-active">
-                                    <span class="pulse-dot"
-                                        style="width:6px;height:6px;position:relative;display:inline-block"></span>
+                                    <span class="pulse-dot"></span>
                                     Active
                                 </span>
                             </div>
-                            <div class="project-role">Game Developer & QA Engineer</div>
+                            <div class="project-role">Game Developer &amp; QA Engineer</div>
                         </div>
                     </div>
-                    <p class="project-desc">Contributed to a major Roblox live title with <strong>5,743</strong> total CCU and <strong>489.7M+</strong> total visits. Focused on bug fixing, transaction validation, and backend service auditing for titles like +1 Sword Fighting Escape.</p>
+                    <p class="project-desc">Contributed to a major Roblox live title with <strong style="color:rgb(var(--ink));">5,743</strong> total CCU and <strong style="color:rgb(var(--ink));">489.7M+</strong> total visits. Focused on bug fixing, transaction validation, and backend service auditing for titles like +1 Sword Fighting Escape.</p>
                     <div class="project-links">
                         <a href="playverse.html" class="project-link-btn project-link-highlight">
+                            <span>Inspect Project</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                stroke="currentColor" stroke-width="2" width="13" height="13">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
-                            View Project
                         </a>
                     </div>
                 </div>
@@ -472,10 +447,14 @@
         </section>
 
         <!-- ─── Other Projects ─── -->
-        <section style="padding:4rem 2rem;max-width:1200px;margin:0 auto;">
+        <section style="padding:4.5rem 1.75rem;max-width:86rem;margin:0 auto;">
             <div class="section-header reveal">
+                <div class="eyebrow">
+                    <span class="k">03</span>
+                    <span class="t">ADDITIONAL COMMISSIONS &amp; CONSULTING</span>
+                </div>
                 <h2 class="section-title">Other Projects</h2>
-                <p class="section-subtitle">Additional projects and contributions.</p>
+                <p class="section-subtitle">Additional projects, community audits, and specialized contributions.</p>
             </div>
 
             <div class="projects-grid">
@@ -484,24 +463,23 @@
                 <div class="project-card reveal" data-categories="rework">
                     <div class="project-card-header">
                         <img src="assets/images/liberty-height/Liberty_Height.png" alt="Liberty Height"
-                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                            style="width:4.5rem;height:4.5rem;border-radius:2px;object-fit:cover;">
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Liberty Height</span>
                             </div>
-                            <div class="project-role">Game Developer & System Architect</div>
+                            <div class="project-role">Game Developer &amp; System Architect</div>
                         </div>
                     </div>
-                    <p class="project-desc">Contribute to 3 Million visits game with FPS gameplay systems including gun
-                        mechanics, phone integration, and physics-based ragdoll.</p>
+                    <p class="project-desc">Contributed to a 3 Million visits game with FPS gameplay systems including gun mechanics, phone integration, and physics-based ragdoll.</p>
                     <div class="project-links">
                         <a href="liberty-height.html" class="project-link-btn project-link-highlight">
+                            <span>Inspect Project</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                stroke="currentColor" stroke-width="2" width="13" height="13">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
-                            View Project
                         </a>
                     </div>
                 </div>
@@ -511,27 +489,26 @@
                     <div class="featured-bar"></div>
                     <div class="project-card-header">
                         <div
-                            style="width:5rem;height:5rem;border-radius:1rem;background:linear-gradient(135deg, #818cf8, #a78bfa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.5rem;">
-                            ⭐
+                            style="width:4.5rem;height:4.5rem;border-radius:2px;background:var(--crimson-soft);border:1px solid var(--crimson-border);display:flex;align-items:center;justify-content:center;color:var(--crimson);font-family:var(--serif);font-size:1.6rem;font-weight:700;">
+                            評
                         </div>
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Another Commission</span>
-                                <span class="badge badge-featured">Featured</span>
+                                <span class="badge badge-featured">Reviews</span>
                             </div>
-                            <div class="project-role">Community Reviews & Feedback</div>
+                            <div class="project-role">Community Reviews &amp; Ro-devs Admin Verification</div>
                         </div>
                     </div>
-                    <p class="project-desc">A showcase of project reviews from community members and admin feedback from
-                        Ro-devs. Featuring testimonials and insights from 8+ community reviews plus admin approval.</p>
+                    <p class="project-desc">A showcase of project reviews from community members and admin feedback from Ro-devs. Featuring testimonials and insights from 8+ community reviews plus admin approval.</p>
                     <div class="project-links">
                         <a href="another-commission.html" class="project-link-btn project-link-highlight">
+                            <span>View Reviews</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
+                                stroke="currentColor" stroke-width="2" width="13" height="13">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            View Reviews
                         </a>
                     </div>
                 </div>
@@ -540,54 +517,45 @@
                 <div class="project-card reveal">
                     <div class="project-card-header">
                         <img src="assets/images/spaceoid-gamedevs/Spaceoid_GameDevs.png" alt="Spaceoid GameDevs"
-                            style="width:5rem;height:5rem;border-radius:1rem;object-fit:cover;">
+                            style="width:4.5rem;height:4.5rem;border-radius:2px;object-fit:cover;">
                         <div class="project-meta">
                             <div class="project-title-row">
                                 <span class="project-title">Spaceoid GameDevs</span>
                             </div>
-                            <div class="project-role">Game Developer & Consultant</div>
+                            <div class="project-role">Game Developer &amp; Consultant</div>
                         </div>
                     </div>
-                    <p class="project-desc">Space-themed game with exploration, resource management, and strategy
-                        gameplay systems.</p>
+                    <p class="project-desc">Space-themed game with exploration, resource management, and strategy gameplay systems.</p>
                     <div class="project-links">
                         <button type="button" class="project-link-btn" disabled>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2" width="14" height="14">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                            In Progress
+                            <span>In Development</span>
                         </button>
                     </div>
                 </div>
 
-
             </div>
         </section>
 
-        <!-- ─── Skills ─── -->
+        <!-- ─── Skills / Arsenal ─── -->
         <section id="skills">
             <div class="section-header reveal">
-                <h2 class="section-title">Advanced Concepts & Technologies</h2>
-                <p class="section-subtitle">Core expertise and specialized technologies I work with.</p>
+                <div class="eyebrow">
+                    <span class="k">04</span>
+                    <span class="t">ARSENAL &amp; ARCHITECTURAL STACK</span>
+                </div>
+                <h2 class="section-title">Core Specializations</h2>
+                <p class="section-subtitle">Core expertise, design patterns, and specialized frameworks I utilize in production.</p>
             </div>
 
-            <div class="skills-grid"
-                style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div class="skills-grid">
 
                 <!-- Advanced Frameworks & Services -->
                 <div class="skill-card reveal">
                     <div class="skill-card-header">
-                        <div class="skill-cat-icon"
-                            style="background:rgba(99,102,241,.15);box-shadow:0 0 12px rgba(99,102,241,.15)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#818cf8"
-                                stroke-width="2">
-                                <polyline points="16 18 22 12 16 6" />
-                                <polyline points="8 6 2 12 8 18" />
-                            </svg>
+                        <div class="skill-cat-icon">
+                            <span class="k" style="font-size:14px;">技</span>
                         </div>
-                        <span class="skill-cat-name">Advanced Services</span>
+                        <span class="skill-cat-name">Advanced Frameworks</span>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag">ProfileStore</span>
@@ -595,55 +563,43 @@
                         <span class="skill-tag">Datastore2</span>
                         <span class="skill-tag">Knit Framework</span>
                         <span class="skill-tag">ByteNet</span>
-                        <span class="skill-tag">Maid/Trove</span>
+                        <span class="skill-tag">Maid / Trove</span>
                     </div>
                 </div>
 
                 <!-- Performance & Optimization -->
                 <div class="skill-card reveal">
                     <div class="skill-card-header">
-                        <div class="skill-cat-icon"
-                            style="background:rgba(139,92,246,.15);box-shadow:0 0 12px rgba(139,92,246,.15)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#a78bfa"
-                                stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                                <circle cx="8.5" cy="8.5" r="1.5" />
-                                <polyline points="21 15 16 10 5 21" />
-                            </svg>
+                        <div class="skill-cat-icon">
+                            <span class="k" style="font-size:14px;">構</span>
                         </div>
-                        <span class="skill-cat-name">Performance & Data</span>
+                        <span class="skill-cat-name">Performance &amp; Data</span>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Optimization & Tuning</span>
+                        <span class="skill-tag">Memory Leak Auditing</span>
                         <span class="skill-tag">Data Serialization</span>
-                        <span class="skill-tag">Data Deserialization</span>
-                        <span class="skill-tag">Scalable System Design</span>
-                        <span class="skill-tag">System Maintenance</span>
-                        <span class="skill-tag">Build & Optimization</span>
+                        <span class="skill-tag">Packet Optimization</span>
+                        <span class="skill-tag">Scalable Architecture</span>
+                        <span class="skill-tag">Network Throttling Defense</span>
+                        <span class="skill-tag">Stress-Test Profiling</span>
                     </div>
                 </div>
 
                 <!-- Programming Languages & Tools -->
                 <div class="skill-card reveal">
                     <div class="skill-card-header">
-                        <div class="skill-cat-icon"
-                            style="background:rgba(234,179,8,.12);box-shadow:0 0 12px rgba(234,179,8,.15)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#eab308"
-                                stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                                <line x1="8" y1="21" x2="16" y2="21" />
-                                <line x1="12" y1="17" x2="12" y2="21" />
-                            </svg>
+                        <div class="skill-cat-icon">
+                            <span class="k" style="font-size:14px;">言</span>
                         </div>
-                        <span class="skill-cat-name">Languages & Tools</span>
+                        <span class="skill-cat-name">Languages &amp; Toolchain</span>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Lua</span>
+                        <span class="skill-tag">Lua / Luau</span>
                         <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript / TypeScript</span>
                         <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Git / Rojo</span>
+                        <span class="skill-tag">Exploit Surface Analysis</span>
                     </div>
                 </div>
 
@@ -651,110 +607,96 @@
         </section>
 
         <!-- ─── What I Offer ─── -->
-        <section id="offers" style="padding: 5rem 2rem; background: var(--color-bg);">
-            <div style="max-width: 1000px; margin: 0 auto;">
-                <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
-                    <h2 class="section-title">What I Offer</h2>
-                    <p class="section-subtitle" style="max-width: 600px; margin: 1rem auto 0;">
-                        Four service areas, each backed by a shipped project. Click "See it in action" for proof.
-                    </p>
+        <section id="offers">
+            <div class="section-header reveal">
+                <div class="eyebrow">
+                    <span class="k">05</span>
+                    <span class="t">PRODUCTION DELIVERABLES</span>
+                </div>
+                <h2 class="section-title">What I Bring to Your Game</h2>
+                <p class="section-subtitle">
+                    Four service pillars, each backed by real shipped production evidence. Click below to inspect verified case studies.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+                <!-- Bug Fixing & Gameplay QA -->
+                <div class="skill-card offer-card reveal">
+                    <div class="skill-card-header">
+                        <span class="skill-cat-name" style="font-size: 0.92rem; font-weight: 600;">01 · Bug Fixing &amp; Gameplay QA</span>
+                    </div>
+                    <ul class="offer-card__bullets">
+                        <li>Diagnose obscure logic bugs, desyncs, and corrupted player states</li>
+                        <li>Audit item inventory replication and server-side multipliers</li>
+                        <li>Reproduce and eliminate live exploits reported by player bases</li>
+                    </ul>
+                    <a href="#" class="offer-card__proof" data-goto-filter="bugfix">
+                        Inspect Proof — PlayVerse &amp; The Chi ↗
+                    </a>
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-
-                    <!-- Bug Fixing & Gameplay QA -->
-                    <div class="skill-card offer-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Bug Fixing &
-                                Gameplay QA</span>
-                        </div>
-                        <ul class="offer-card__bullets">
-                            <li>Diagnose logic bugs, exploits, and broken game states</li>
-                            <li>Validate item states, transactions, and server-side multipliers</li>
-                            <li>Reproduce and fix issues found in active player-facing environments</li>
-                        </ul>
-                        <a href="#" class="offer-card__proof" data-goto-filter="bugfix">
-                            See it in action — PlayVerse & The Chi
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
+                <!-- Full Game Rework -->
+                <div class="skill-card offer-card reveal">
+                    <div class="skill-card-header">
+                        <span class="skill-cat-name" style="font-size: 0.92rem; font-weight: 600;">02 · Full Game Architecture Rework</span>
                     </div>
-
-                    <!-- Full Game Rework -->
-                    <div class="skill-card offer-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Full Game
-                                Rework</span>
-                        </div>
-                        <ul class="offer-card__bullets">
-                            <li>Rebuild visual identity, map layout, and task/progression flow</li>
-                            <li>Stabilize damage, physics, and gameplay state transitions end-to-end</li>
-                            <li>Turn a rough concept into a project ready for long-term development</li>
-                        </ul>
-                        <a href="#" class="offer-card__proof" data-goto-filter="rework">
-                            See it in action — The Chi & Stone World
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- Backend & Security Architecture -->
-                    <div class="skill-card offer-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Backend &
-                                Security Architecture</span>
-                        </div>
-                        <ul class="offer-card__bullets">
-                            <li>Modular systems with Knit, ProfileStore, ReplicaService, Datastore2</li>
-                            <li>Remote event verification to block client-side spoofing and spam</li>
-                            <li>Server-side validation designed with exploit prevention in mind</li>
-                        </ul>
-                        <a href="#" class="offer-card__proof" data-goto-filter="backend">
-                            See it in action — Anime Majesty & PlayVerse
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- Performance & Network Optimization -->
-                    <div class="skill-card offer-card reveal">
-                        <div class="skill-card-header" style="margin-bottom: 1.25rem;">
-                            <span class="skill-cat-name" style="font-size: 1.125rem; font-weight: 600;">Performance &
-                                Network Optimization</span>
-                        </div>
-                        <ul class="offer-card__bullets">
-                            <li>Packet size optimization — down to 247 bytes per attack packet</li>
-                            <li>Zero memory-leak systems verified across 50+ concurrent players</li>
-                            <li>System design built to scale with live player load</li>
-                        </ul>
-                        <a href="#" class="offer-card__proof" data-goto-filter="performance">
-                            See it in action — Anime Majesty
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
-
+                    <ul class="offer-card__bullets">
+                        <li>Rebuild legacy codebases into modern decoupled service structures</li>
+                        <li>Stabilize physics, vehicle mechanics, and combat collision handling</li>
+                        <li>Turn proof-of-concept prototypes into scalable live-service titles</li>
+                    </ul>
+                    <a href="#" class="offer-card__proof" data-goto-filter="rework">
+                        Inspect Proof — The Chi &amp; Stone World ↗
+                    </a>
                 </div>
+
+                <!-- Backend & Security Architecture -->
+                <div class="skill-card offer-card reveal">
+                    <div class="skill-card-header">
+                        <span class="skill-cat-name" style="font-size: 0.92rem; font-weight: 600;">03 · Backend &amp; Security Auditing</span>
+                    </div>
+                    <ul class="offer-card__bullets">
+                        <li>Modular systems built on Knit, ProfileStore, ReplicaService &amp; Datastore2</li>
+                        <li>Strict RemoteEvent validation to permanently stop client spam &amp; spoofing</li>
+                        <li>Zero-trust server-side state authority for all critical transactions</li>
+                    </ul>
+                    <a href="#" class="offer-card__proof" data-goto-filter="backend">
+                        Inspect Proof — Anime Majesty &amp; PlayVerse ↗
+                    </a>
+                </div>
+
+                <!-- Performance & Network Optimization -->
+                <div class="skill-card offer-card reveal">
+                    <div class="skill-card-header">
+                        <span class="skill-cat-name" style="font-size: 0.92rem; font-weight: 600;">04 · Performance &amp; Network Tuning</span>
+                    </div>
+                    <ul class="offer-card__bullets">
+                        <li>Radical packet compression — down to 247 bytes per attack sequence</li>
+                        <li>Verified zero memory leaks during prolonged sessions with 50+ concurrent users</li>
+                        <li>Optimized frame pacing, spatial partitioning, and client rendering load</li>
+                    </ul>
+                    <a href="#" class="offer-card__proof" data-goto-filter="performance">
+                        Inspect Proof — Anime Majesty ↗
+                    </a>
+                </div>
+
             </div>
         </section>
 
         <!-- ─── Contact ─── -->
         <section id="contact">
             <div class="reveal">
+                <div class="eyebrow">
+                    <span class="k">06</span>
+                    <span class="t">TRANSMISSION &amp; INQUIRIES</span>
+                </div>
                 <h2 class="contact-heading">
-                    Let's work<br>
+                    Let's build<br>
                     <span class="accent-gradient-text">together.</span>
                 </h2>
-                <p style="font-size:.9375rem;color:var(--color-text-secondary);max-width:30rem;">
-                    Have a project or want to collaborate? Get in touch with me through any of the platforms below.
+                <p style="font-size:1.05rem;color:var(--color-text-secondary);max-width:34rem;font-family:var(--serif);">
+                    Have an ambitious title or need an architectural overhaul? Inquire through Discord or view on-platform credentials below.
                 </p>
             </div>
 
@@ -763,33 +705,27 @@
                 <!-- Discord -->
                 <div class="contact-card reveal">
                     <div class="contact-card-header">
-                        <div class="contact-icon-wrap"
-                            style="background:rgba(88,101,242,.15);box-shadow:0 0 16px rgba(88,101,242,.15)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#5865F2" viewBox="0 0 24 24">
+                        <div class="contact-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z" />
                             </svg>
                         </div>
                         <div>
                             <div class="contact-card-title">Discord</div>
-                            <div class="contact-card-sub">Quick chat & collaboration</div>
+                            <div class="contact-card-sub">Fast response &amp; discussion</div>
                         </div>
                         <div class="status-online">
-                            <span class="pulse-dot"
-                                style="width:8px;height:8px;flex-shrink:0;position:relative;display:inline-block"></span>
+                            <span class="pulse-dot"></span>
                             Online
                         </div>
                     </div>
+                    <p class="contact-desc">Direct messaging for commissions, technical consultation, or long-term studio partnerships.</p>
                     <a href="https://discord.com/users/323107249264525324" target="_blank" rel="noopener"
-                        class="btn-primary" style="width:100%;justify-content:center;font-size:.875rem;">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#5865F2" viewBox="0 0 24 24" width="16"
-                            height="16">
-                            <path
-                                d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.211.375-.445.864-.607 1.25a18.27 18.27 0 00-5.487 0c-.163-.386-.395-.875-.607-1.25a.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.056 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 00-.042-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.095.252-.195.372-.297a.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.009c.12.102.246.203.373.298a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.076.076 0 00-.041.107c.352.699.764 1.365 1.225 1.994a.076.076 0 00.084.028 19.865 19.865 0 006.002-3.03.077.077 0 00.032-.054c.5-4.718-.838-8.812-3.549-12.437a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.965-2.157 2.157-2.157 1.192 0 2.157.964 2.157 2.157 0 1.19-.965 2.156-2.157 2.156z" />
-                        </svg>
-                        Open Discord
+                        class="btn-primary" style="width:100%;justify-content:center;">
+                        <span>Open Discord Channel</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            stroke-width="2" width="14" height="14">
+                            stroke-width="2" width="13" height="13">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
@@ -798,69 +734,54 @@
                 <!-- GitHub -->
                 <div class="contact-card reveal">
                     <div class="contact-card-header">
-                        <div class="contact-icon-wrap"
-                            style="background:rgba(139,92,246,.12);box-shadow:0 0 16px rgba(139,92,246,.12)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#a78bfa" viewBox="0 0 24 24">
+                        <div class="contact-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
                             </svg>
                         </div>
                         <div>
                             <div class="contact-card-title">GitHub</div>
-                            <div class="contact-card-sub">Open source projects</div>
+                            <div class="contact-card-sub">Open source &amp; repositories</div>
                         </div>
                     </div>
-                    <p class="contact-desc">Check out my repositories, contributions, and open source projects. Feel
-                        free to star or fork.</p>
+                    <p class="contact-desc">Examine public repositories, game tooling, and open source code contributions.</p>
                     <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" class="btn-secondary"
-                        style="width:100%;justify-content:center;font-size:.875rem;">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="16"
-                            height="16">
-                            <path
-                                d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.27-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
+                        style="width:100%;justify-content:center;">
+                        <span>View GitHub Profile</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2" width="13" height="13">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        View GitHub
                     </a>
                 </div>
 
                 <!-- Roblox Profile -->
                 <div class="contact-card reveal">
                     <div class="contact-card-header">
-                        <div class="contact-icon-wrap"
-                            style="background:rgba(37,99,235,.12);box-shadow:0 0 16px rgba(96,165,250,.15)">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#60a5fa"
+                        <div class="contact-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="10" width="20" height="12" rx="4" />
                                 <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
-                                <circle cx="15.5" cy="15.5" r="1" fill="#60a5fa" stroke="none" />
-                                <circle cx="17.5" cy="13.5" r="1" fill="#60a5fa" stroke="none" />
+                                <circle cx="15.5" cy="15.5" r="1" fill="currentColor" stroke="none" />
+                                <circle cx="17.5" cy="13.5" r="1" fill="currentColor" stroke="none" />
                                 <line x1="7" y1="13" x2="7" y2="17" />
                                 <line x1="5" y1="15" x2="9" y2="15" />
                             </svg>
                         </div>
                         <div>
                             <div class="contact-card-title">Roblox</div>
-                            <div class="contact-card-sub">Game development profile</div>
+                            <div class="contact-card-sub">Verified Developer Profile</div>
                         </div>
                     </div>
-                    <p class="contact-desc">View my Roblox developer profile, portfolio of games, and studio
-                        collaborations. All commissioned work verified on-platform.</p>
+                    <p class="contact-desc">View Roblox developer profile, games catalog, and live verified client commissions.</p>
                     <a href="https://www.roblox.com/users/1468004656/profile" target="_blank" rel="noopener"
-                        class="btn-secondary"
-                        style="width:100%;justify-content:center;font-size:.875rem;background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(37,99,235,.06));border-color:rgba(96,165,250,.3);color:#60a5fa;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#60a5fa"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
-                            <rect x="2" y="10" width="20" height="12" rx="4" />
-                            <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
-                            <circle cx="15.5" cy="15.5" r="1" fill="#60a5fa" stroke="none" />
-                            <circle cx="17.5" cy="13.5" r="1" fill="#60a5fa" stroke="none" />
-                            <line x1="7" y1="13" x2="7" y2="17" />
-                            <line x1="5" y1="15" x2="9" y2="15" />
-                        </svg>
-                        View Roblox Profile
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#60a5fa"
-                            stroke-width="2" width="14" height="14">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        class="btn-secondary" style="width:100%;justify-content:center;">
+                        <span>View Roblox Profile</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2" width="13" height="13">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                     </a>
                 </div>
@@ -872,7 +793,7 @@
     <!-- ─── Footer ─── -->
     <footer>
         <div class="footer-inner">
-            <p>&copy; 2025 BEDUL. All Rights Reserved.</p>
+            <p>&copy; 2026 BEDUL · ALL RIGHTS RESERVED · CRAFTED WITH GENJUTSU AESTHETIC</p>
             <div class="footer-links">
                 <a href="https://github.com/addinzulfikar" target="_blank" rel="noopener" aria-label="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -880,13 +801,25 @@
                             d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55v-2c-3.19.69-3.86-1.54-3.86-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 2.86-.38c.97 0 1.95.13 2.86.38 2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.13v3.16c0 .31.2.66.79.55C20.21 21.38 23.5 17.08 23.5 12 23.5 5.73 18.27.5 12 .5z" />
                     </svg>
                 </a>
+                <a href="https://www.roblox.com/users/1468004656/profile" target="_blank" rel="noopener" aria-label="Roblox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="10" width="20" height="12" rx="4" />
+                        <path d="M7 10V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v4" />
+                        <circle cx="15.5" cy="15.5" r="1" fill="currentColor" stroke="none" />
+                        <circle cx="17.5" cy="13.5" r="1" fill="currentColor" stroke="none" />
+                        <line x1="7" y1="13" x2="7" y2="17" />
+                        <line x1="5" y1="15" x2="9" y2="15" />
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- Main JavaScript -->
     <script src="assets/js/script.js"></script>
 
-    <!-- Page-specific: project category filter + offer-card proof links -->
+    <!-- Project category filter + offer-card proof links -->
     <script>
         (function () {
             var filterButtons = document.querySelectorAll('.filter-btn');
